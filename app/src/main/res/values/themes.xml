@@ -1,0 +1,57 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.MyApplication" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/dark_red</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.MyApplication.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyApplication.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MyApplication.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--    Styled Toast-->
+    <style name="errorToast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stTextSize">14sp</item>
+        <item name="stColorBackground">@color/dark_red</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stStrokeWidth">3dp</item>
+        <item name="stStrokeColor">#fff</item>
+        <item name="stIconStart">@drawable/app_logo</item>
+        <item name="stLength">LONG</item>
+        <item name="stGravity">center</item>
+        <item name="stRadius">5dp</item>
+    </style>
+
+    <style name="OnActivity">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">@color/black</item>
+        <item name="stFont">@font/antic</item>
+        <item name="stTextSize">14sp</item>
+        <item name="stColorBackground">#fff</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stStrokeWidth">3dp</item>
+        <item name="stStrokeColor">#fff</item>
+        <item name="stIconStart">@drawable/app_logo_c_nobg</item>
+        <item name="stLength">LONG</item>
+        <item name="stGravity">top</item>
+        <item name="stRadius">5dp</item>
+    </style>
+
+
+</resources>

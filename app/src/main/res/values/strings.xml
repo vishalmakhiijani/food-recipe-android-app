@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Tasty Tips</string>
+    <!--    <string name="api_key">ba5109aa063b47718fa874cd1476bda1</string>-->
+    <string name="api_key">7c4563f707ab453aa2de893ef1444dc9</string>
+    <!--    <string name="api_key">fc280aba16db4aac9fd7c738629651cc</string>-->
+    <string name="_2_perons">2 Perons</string>
+
+    <string-array name="tags">
+        <item>main course</item>
+        <item>side dish</item>
+        <item>dessert</item>
+        <item>appetizer</item>
+        <item>salad</item>
+        <item>bread</item>
+        <item>breakfast</item>
+        <item>soup</item>
+        <item>beverage</item>
+        <item>sauce</item>
+        <item>marinade</item>
+        <item>fingerfood</item>
+        <item>snack</item>
+        <item>drink</item>
+    </string-array>
+
+    <!--    Desp-->
+    <!--    Heading-->
+
+    <string name="slogan">Fresh And  Delicious</string>
+    <string name="recipe_details">Recipe Details</string>
+    <string name="vishal_makhijani">Vishal Makhijani</string>
+    <string name="full_name_input">Full Name</string>
+    <string name="email_input">Email Address:</string>
+    <string name="dev_email">contact@meetvishalkumar.com</string>
+    <string name="phone_input">Phone Number:</string>
+    <string name="dev_phone_number">03321305436</string>
+    <string name="weight">Weight</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="title_activity_list_meal_planer_recipe">ListMealPlanerRecipe</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="gender">Gender</string>
+    <string name="send_all_ingredients_to_shopping_list">Send All Ingredients to Shopping list</string>
+    <!-- Strings used for fragments for navigation -->
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "446872034353",
+    "project_id": "tasty-tips-c164d",
+    "storage_bucket": "tasty-tips-c164d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446872034353:android:420c03d6ad2a6ceea84910",
+        "android_client_info": {
+          "package_name": "com.meetvishalkumar.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446872034353-rm5c40ne963alq0317ur42dgmht6dluq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy_CzHON44uWJY_ED-IWJNaY_VVt8NDNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "446872034353-rm5c40ne963alq0317ur42dgmht6dluq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
