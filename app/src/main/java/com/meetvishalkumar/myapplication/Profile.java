@@ -27,6 +27,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.meetvishalkumar.myapplication.Adapters.Insert_Data;
 import com.meetvishalkumar.myapplication.LoginOrSignup.RigesterUser;
 
+import java.util.Calendar;
+
 import io.github.muddz.styleabletoast.StyleableToast;
 
 public class Profile extends AppCompatActivity
@@ -50,6 +52,11 @@ public class Profile extends AppCompatActivity
         setContentView(R.layout.activity_profile);
         findViws();
         navigationView();
+        if(mAuth.getInstance().getCurrentUser()==null){
+            Toast.makeText(this, "You are not logged in", Toast.LENGTH_SHORT).show();
+            Intent intent3 = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent3);
+        }
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
         UserID = user.getUid();
@@ -63,7 +70,12 @@ public class Profile extends AppCompatActivity
                     String Password = UserProfile._password;
                     String Gender = UserProfile._gender;
                     String Date = UserProfile._date;
-                    String Age = String.valueOf(UserProfile._age);
+                    int CureentYear = Calendar.getInstance().get(Calendar.YEAR);
+//                    String Age = String.valueOf(UserProfile._birthyear);
+                    int _age = CureentYear - UserProfile._birthyear;
+                    String Age =String.valueOf(_age);
+
+
                     String Username = UserProfile._username;
                     TextView_FullName_Main.setText(FullName);
                     TextView_UserName_Main.setText(Username);
