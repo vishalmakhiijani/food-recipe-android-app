@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.meetvishalkumar.myapplication.LoginOrSignup.RigesterUser;
 
@@ -92,15 +93,21 @@ public class Signup_Second extends AppCompatActivity {
         int CureentYear = Calendar.getInstance().get(Calendar.YEAR);
         int _age = CureentYear - year;
         String _date = month + "/" + day + "/" + year;
+        int _birthyear =year;
         mAuth.createUserWithEmailAndPassword(_email, _password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    RigesterUser rigesterUser = new RigesterUser(_fullName, _email, _username, _password, _date, _gender, _age);
+                    RigesterUser rigesterUser = new RigesterUser(_fullName, _email, _username, _password, _date, _gender, _age,_birthyear);
                     FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(rigesterUser).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            startActivity(new Intent(Signup_Second.this, Login.class));
+
+                            Toast.makeText(getApplicationContext(), "Account Created PLease Verify Your Email", Toast.LENGTH_SHORT).show();
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            user.sendEmailVerification();
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(getApplicationContext(), Login.class));
 
                         }
                     });
