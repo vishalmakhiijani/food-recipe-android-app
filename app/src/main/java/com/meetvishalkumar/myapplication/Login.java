@@ -2,6 +2,7 @@ package com.meetvishalkumar.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -117,6 +118,10 @@ public class Login extends AppCompatActivity {
             login_Email_editText.requestFocus();
             return false;
         } else if (!val.matches(checkEmail)) {
+            login_Email_editText.setError("Invalid Email!");
+            login_Email_editText.requestFocus();
+            return false;
+        }else if (Patterns.EMAIL_ADDRESS.matcher(val).matches()) {
             login_Email_editText.setError("Invalid Email!");
             login_Email_editText.requestFocus();
             return false;

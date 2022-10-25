@@ -1,19 +1,34 @@
 package com.meetvishalkumar.myapplication;
 
+import static androidx.fragment.app.FragmentManager.TAG;
+
+import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Pair;
+import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.SignInMethodQueryResult;
 
 public class Signup extends AppCompatActivity {
 
@@ -22,7 +37,7 @@ public class Signup extends AppCompatActivity {
     Button signup_next_button, signup_login_button;
     TextView signup_title_text, signup_slide_text;
     private FirebaseAuth mAuth;
-
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +49,7 @@ public class Signup extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), Profile.class));
             finish();
         }
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         signup_back_button = findViewById(R.id.signup_back_button);
         signup_next_button = findViewById(R.id.signup_next_button);
@@ -129,20 +145,24 @@ public class Signup extends AppCompatActivity {
         } else if (!val.matches(checkEmail)) {
             signup_email.setError("Invalid Email!");
             return false;
+        } else if (Patterns.EMAIL_ADDRESS.matcher(val).matches()) {
+            signup_email.setError("Invalid Email!");
+            return false;
         } else {
             signup_email.setError(null);
             signup_email.setErrorEnabled(false);
             return true;
         }
-    }
 
+
+    }
     private boolean validatePassword() {
         String val = signup_password.getEditText().getText().toString().trim();
 
         if (val.isEmpty()) {
             signup_password.setError("Field can not be empty");
             return false;
-        } else if (val.length() < 6) {
+        } else if (val.length() < 8) {
             signup_password.setError("Password should contain Minimum of 6 characters!");
             return false;
         } else {
@@ -152,8 +172,7 @@ public class Signup extends AppCompatActivity {
         }
     }
 
-
-    public void callLoginFromSignUp(View view) {
+        public void callLoginFromSignUp(View view) {
         startActivity(new Intent(getApplicationContext(), Login.class));
         finish();
     }
