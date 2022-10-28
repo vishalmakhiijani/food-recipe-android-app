@@ -121,7 +121,7 @@ public class Login extends AppCompatActivity {
             login_Email_editText.setError("Invalid Email!");
             login_Email_editText.requestFocus();
             return false;
-        }else if (Patterns.EMAIL_ADDRESS.matcher(val).matches()) {
+        }else if (!Patterns.EMAIL_ADDRESS.matcher(val).matches()) {
             login_Email_editText.setError("Invalid Email!");
             login_Email_editText.requestFocus();
             return false;

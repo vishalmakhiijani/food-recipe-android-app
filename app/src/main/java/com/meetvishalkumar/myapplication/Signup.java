@@ -145,7 +145,7 @@ public class Signup extends AppCompatActivity {
         } else if (!val.matches(checkEmail)) {
             signup_email.setError("Invalid Email!");
             return false;
-        } else if (Patterns.EMAIL_ADDRESS.matcher(val).matches()) {
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(val).matches()) {
             signup_email.setError("Invalid Email!");
             return false;
         } else {
