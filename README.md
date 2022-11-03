@@ -5,7 +5,8 @@ working things
 -user login with email verification
 -forget password
 -kitchen tips and tricks working
--recipe section is all working
+-recipe section 
+-No Internet Connection Banner
 
 Upcoming update
 -Grocery shopping(ToDo)
