@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/menu_slogan"
         android:layout_marginLeft="15dp"
-        android:fontFamily="@font/nabla"
+        android:fontFamily="@font/islandmoments"
+        android:textStyle="bold"
         android:text="@string/app_name"
         android:textColor="@color/dark_red"
         android:textSize="45sp" />

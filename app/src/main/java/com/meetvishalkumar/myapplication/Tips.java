@@ -2,11 +2,13 @@ package com.meetvishalkumar.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,6 +31,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.meetvishalkumar.myapplication.Adapters.Get_Tips_Tricks;
+import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
 import com.meetvishalkumar.myapplication.LoginOrSignup.RigesterUser;
 
 import java.util.ArrayList;
@@ -58,6 +61,13 @@ public class Tips extends AppCompatActivity implements NavigationView.OnNavigati
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tips);
+        if (!checkInternet()) {
+            NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+            noInternetDialoag.setCancelable(false);
+            noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+            noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+            noInternetDialoag.show();
+        }
         menu_opener_image = findViewById(R.id.menu_opener_image);
         navigationView = findViewById(R.id.navigation_view);
         drawerLayout = findViewById(R.id.drawer_layout);
