@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Loading_Animation.NoInternetDiaload">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardUseCompatPadding="true"
+        android:layout_marginTop="80dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginBottom="80dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/no_internet_connection_animation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:lottie_rawRes="@raw/no_internet_connection"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/no_internet_connection_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No Internet Connection"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="80dp"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/antic"
+                    android:textColor="@color/black"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/retry_button"
+    android:layout_width="wrap_content"
+    android:layout_height="45dp"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:text="Retry"
+    android:paddingStart="50dp"
+    android:paddingEnd="50dp"
+    android:layout_marginBottom="20dp"
+    android:fontFamily="@font/antic"
+    android:textStyle="bold"
+    android:textColor="@color/black"
+    android:background="@drawable/round_back_stroke"/>
+        </RelativeLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

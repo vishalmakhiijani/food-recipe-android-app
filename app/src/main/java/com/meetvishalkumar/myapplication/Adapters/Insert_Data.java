@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,9 +16,15 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.meetvishalkumar.myapplication.LoginOrSignup.RigesterUser;
 import com.meetvishalkumar.myapplication.MainActivity;
 import com.meetvishalkumar.myapplication.Models.Insert_Data_Tips_Tricks;
 import com.meetvishalkumar.myapplication.Profile;
@@ -25,6 +32,8 @@ import com.meetvishalkumar.myapplication.R;
 import com.meetvishalkumar.myapplication.Splash_Login;
 import com.meetvishalkumar.myapplication.Tips;
 import com.meetvishalkumar.myapplication.meal_planner;
+
+import java.util.Calendar;
 
 public class Insert_Data extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     static final float END_SCALE = 0.7f;
@@ -35,7 +44,11 @@ public class Insert_Data extends AppCompatActivity implements NavigationView.OnN
     EditText Edit_Text_Insert_data_Name, Edit_Text_Insert_data_Desp;
     Button Button_Inert_Data;
     DatabaseReference reference;
+    DatabaseReference reference_User;
     private FirebaseAuth mAuth;
+    private FirebaseUser user;
+    private String UserID;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +57,19 @@ public class Insert_Data extends AppCompatActivity implements NavigationView.OnN
         Edit_Text_Insert_data_Name = findViewById(R.id.Edit_Text_Insert_data_Name);
         Edit_Text_Insert_data_Desp = findViewById(R.id.Edit_Text_Insert_data_Desp);
         Button_Inert_Data = findViewById(R.id.Button_Inert_Data);
+//        navigationView();
 
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        if(FirebaseAuth.getInstance().getCurrentUser()==null){
+            Toast.makeText(this, "Please Login To Contribute", Toast.LENGTH_SHORT).show();
+            Intent intent3 = new Intent(getApplicationContext(), Splash_Login.class);
+            startActivity(intent3);
+        }else{
+            user = FirebaseAuth.getInstance().getCurrentUser();
+            reference_User = FirebaseDatabase.getInstance().getReference("Users");
+            UserID = user.getUid();
+        }
         reference = FirebaseDatabase.getInstance().getReference().child("Tips And Tricks");
         Button_Inert_Data.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,14 +81,41 @@ public class Insert_Data extends AppCompatActivity implements NavigationView.OnN
     }
 
     private void InsertTipsAndTricksData() {
-        String name = Edit_Text_Insert_data_Name.getText().toString();
-        String content = Edit_Text_Insert_data_Desp.getText().toString();
-        Insert_Data_Tips_Tricks insert_data_tips_tricks = new Insert_Data_Tips_Tricks(name, content);
-        reference.push().setValue(insert_data_tips_tricks);
+        reference_User.child(UserID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                RigesterUser UserProfile = snapshot.getValue(RigesterUser.class);
+                if (UserProfile != null) {
+                    String FullName = UserProfile._fullname;
+                    String name = Edit_Text_Insert_data_Name.getText().toString();
+                    String content = Edit_Text_Insert_data_Desp.getText().toString();
+                    Insert_Data_Tips_Tricks insert_data_tips_tricks = new Insert_Data_Tips_Tricks(name, content, FullName);
+                    reference.push().setValue(insert_data_tips_tricks);
+                    Toast.makeText(Insert_Data.this, "Data Inserted Successfully", Toast.LENGTH_SHORT).show();
+                    Edit_Text_Insert_data_Name.setText("");
+                    Edit_Text_Insert_data_Desp.setText("");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getApplicationContext(), "Something Went Wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+        reference = FirebaseDatabase.getInstance().getReference().child("Tips And Tricks");
+        Button_Inert_Data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InsertTipsAndTricksData();
+            }
+        });
+
+
 
     }
 
     //        Navigation Drawer Setting Start
+
     private void navigationView() {
 
         navigationView.bringToFront();

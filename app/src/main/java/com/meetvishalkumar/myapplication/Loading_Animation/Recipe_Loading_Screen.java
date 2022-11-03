@@ -5,13 +5,15 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.view.LayoutInflater;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.meetvishalkumar.myapplication.R;
 
 public class Recipe_Loading_Screen {
-    private Activity activity;
+    private final Activity activity;
     //Context context;
     //AlertDialog alertDialog_Recipe_Loading;
     private Dialog alertDialog_Recipe_Loading;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
 
     //                  OLD CODE

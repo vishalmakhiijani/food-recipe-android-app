@@ -8,9 +8,11 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class SplashScreen extends AppCompatActivity {
     LottieAnimationView lottie;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +27,7 @@ public class SplashScreen extends AppCompatActivity {
                 startActivity(i);
             }
         }, 2700);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
+
 }

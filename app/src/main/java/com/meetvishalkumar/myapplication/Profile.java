@@ -17,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -45,6 +46,7 @@ public class Profile extends AppCompatActivity
     private DatabaseReference reference;
     private String UserID;
     private FirebaseAuth mAuth;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,48 +54,51 @@ public class Profile extends AppCompatActivity
         setContentView(R.layout.activity_profile);
         findViws();
         navigationView();
-        if(mAuth.getInstance().getCurrentUser()==null){
+        if(FirebaseAuth.getInstance().getCurrentUser()==null){
             Toast.makeText(this, "You are not logged in", Toast.LENGTH_SHORT).show();
-            Intent intent3 = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent3 = new Intent(getApplicationContext(), Splash_Login.class);
             startActivity(intent3);
-        }
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("Users");
-        UserID = user.getUid();
-        reference.child(UserID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                RigesterUser UserProfile = snapshot.getValue(RigesterUser.class);
-                if (UserProfile != null) {
-                    String FullName = UserProfile._fullname;
-                    String Email = UserProfile._email;
-                    String Password = UserProfile._password;
-                    String Gender = UserProfile._gender;
-                    String Date = UserProfile._date;
-                    int CureentYear = Calendar.getInstance().get(Calendar.YEAR);
+        }else{
+            user = FirebaseAuth.getInstance().getCurrentUser();
+            reference = FirebaseDatabase.getInstance().getReference("Users");
+            UserID = user.getUid();
+            reference.child(UserID).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    RigesterUser UserProfile = snapshot.getValue(RigesterUser.class);
+                    if (UserProfile != null) {
+                        String FullName = UserProfile._fullname;
+                        String Email = UserProfile._email;
+                        String Password = UserProfile._password;
+                        String Gender = UserProfile._gender;
+                        String Date = UserProfile._date;
+                        int CureentYear = Calendar.getInstance().get(Calendar.YEAR);
 //                    String Age = String.valueOf(UserProfile._birthyear);
-                    int _age = CureentYear - UserProfile._birthyear;
-                    String Age =String.valueOf(_age);
+                        int _age = CureentYear - UserProfile._birthyear;
+                        String Age =String.valueOf(_age);
 
 
-                    String Username = UserProfile._username;
-                    TextView_FullName_Main.setText(FullName);
-                    TextView_UserName_Main.setText(Username);
-                    EditInputEditText_Fullname.setText(FullName);
-                    EditInputEditText_Email.setText(Email);
-                    EditInputEditText_Age.setText(Age);
-                    EditInputEditText_Password.setText(Password);
-                    EditInputEditText_Gender.setText(Gender);
-                    EditInputEditText_DOB.setText(Date);
+                        String Username = UserProfile._username;
+                        TextView_FullName_Main.setText(FullName);
+                        TextView_UserName_Main.setText(Username);
+                        EditInputEditText_Fullname.setText(FullName);
+                        EditInputEditText_Email.setText(Email);
+                        EditInputEditText_Age.setText(Age);
+                        EditInputEditText_Password.setText(Password);
+                        EditInputEditText_Gender.setText(Gender);
+                        EditInputEditText_DOB.setText(Date);
 
+                    }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Profile.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(Profile.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+
     }
 
     private void findViws() {

@@ -26,6 +26,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:layout_marginTop="50dp">
 
             <TextView
@@ -128,7 +129,7 @@
                 app:endIconTint="@color/black"
                 app:hintTextColor="@color/black"
                 app:startIconDrawable="@drawable/email_20"
-                app:startIconTint="@color/black">
+                app:startIconTint="@color/black"        >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"

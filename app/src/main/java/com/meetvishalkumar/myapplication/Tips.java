@@ -17,15 +17,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.meetvishalkumar.myapplication.Adapters.Get_Tips_Tricks;
+import com.meetvishalkumar.myapplication.LoginOrSignup.RigesterUser;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import io.github.muddz.styleabletoast.StyleableToast;
@@ -41,6 +45,10 @@ public class Tips extends AppCompatActivity implements NavigationView.OnNavigati
     RecyclerView recyclerView;
     Adapter get_Tips_Tricks;
     private FirebaseAuth mAuth;
+    private FirebaseUser user;
+    private DatabaseReference referencee;
+    private String UserID;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
 
     @Override
@@ -51,6 +59,8 @@ public class Tips extends AppCompatActivity implements NavigationView.OnNavigati
         navigationView = findViewById(R.id.navigation_view);
         drawerLayout = findViewById(R.id.drawer_layout);
         contentView = findViewById(R.id.content);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         final RecyclerView recyclerView = findViewById(R.id.Show_Tips_Tricks_Recycler_View);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(Tips.this));
@@ -60,6 +70,7 @@ public class Tips extends AppCompatActivity implements NavigationView.OnNavigati
                 list.clear();
                 for (DataSnapshot tip : snapshot.child("Tips And Tricks").getChildren()) {
                     if (tip.hasChild("name") && tip.hasChild("content")) {
+
                         final String getName = tip.child("name").getValue(String.class);
                         final String getContent = tip.child("content").getValue(String.class);
                         Show_Data_Tips_Tricks show_data_tips_tricks = new Show_Data_Tips_Tricks(getName, getContent);

@@ -14,6 +14,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 
 import io.github.muddz.styleabletoast.StyleableToast;
@@ -25,6 +26,7 @@ public class meal_planner extends AppCompatActivity implements NavigationView.On
     ImageView menu_opener_image;
     LinearLayout contentView;
     private FirebaseAuth mAuth;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

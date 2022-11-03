@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.meetvishalkumar.myapplication.Adapters.IngredientsAdapter;
 import com.meetvishalkumar.myapplication.Adapters.Insert_Data;
@@ -58,6 +59,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         }
     };
     int id;
+    private FirebaseAnalytics mFirebaseAnalytics;
     TextView TextView_Meal_Name, textView_Meal_Source, textview_meal_Summary, textview_meal_Summary_Expand, textView_meal_servings, textView_meal_ready, textView_meal_price;
     ImageView ImageView_meal_image;
     RecyclerView recycler_meal_ingrediets, Recycler_meal_similar, Recycler_meal_instructions;

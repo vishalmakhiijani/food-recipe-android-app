@@ -2,6 +2,7 @@ package com.meetvishalkumar.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
@@ -146,6 +147,11 @@ public class Login extends AppCompatActivity {
             login_password.setErrorEnabled(false);
             return true;
         }
+    }
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), Splash_Login.class));
+        finish();
     }
 
 }

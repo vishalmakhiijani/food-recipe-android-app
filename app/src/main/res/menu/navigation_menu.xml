@@ -57,23 +57,5 @@
         </menu>
 
     </item>
-    <!--    <item android:title="To BE Removed Later">-->
-    <!--        <menu>-->
-    <!--            <group android:checkableBehavior="single">-->
-    <!--                <item android:id="@+id/Navigation_bar_item_Login_Remove"-->
-    <!--                    android:title="Login"-->
-    <!--                    android:icon="@drawable/home_50"/>-->
-    <!--                <item android:id="@+id/Navigation_bar_item_Signup_Remove"-->
-    <!--                    android:title="Signup"-->
-    <!--                    android:icon="@drawable/home_50"/>-->
-    <!--                <item android:id="@+id/Navigation_bar_item_OTP_Remove"-->
-    <!--                    android:title="OTP"-->
-    <!--                    android:icon="@drawable/home_50"/>-->
-
-
-    <!--            </group>-->
-    <!--        </menu>-->
-
-    <!--    </item>-->
 
 </menu>

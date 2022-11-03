@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,6 +36,7 @@ public class Signup_Second extends AppCompatActivity {
     DatePicker datePicker;
     ProgressBar progressBar;
     private FirebaseAuth mAuth;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
 
     @Override
@@ -42,6 +44,7 @@ public class Signup_Second extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_signup_second);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         signup_back_button = findViewById(R.id.signup_back_button);
         signup_next_button = findViewById(R.id.signup_next_button);

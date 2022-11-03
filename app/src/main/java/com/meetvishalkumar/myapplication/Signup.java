@@ -176,5 +176,10 @@ public class Signup extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), Login.class));
         finish();
     }
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), Splash_Login.class));
+        finish();
+    }
 
 }

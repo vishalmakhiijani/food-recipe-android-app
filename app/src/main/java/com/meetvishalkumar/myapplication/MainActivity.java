@@ -1,7 +1,12 @@
 package com.meetvishalkumar.myapplication;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,11 +26,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.meetvishalkumar.myapplication.Adapters.Insert_Data;
 import com.meetvishalkumar.myapplication.Adapters.RandomRecipeAdapter;
 import com.meetvishalkumar.myapplication.Listeners.RandomRecipesResponseListener;
 import com.meetvishalkumar.myapplication.Listeners.RecipeClickListener;
+import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
 import com.meetvishalkumar.myapplication.Models.RandomRecipeApiResponse;
 
 import java.util.ArrayList;
@@ -43,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .putExtra("id", id));
         }
     };
+    private FirebaseAnalytics mFirebaseAnalytics;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ProgressDialog dialog;
@@ -75,7 +83,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             tags.clear();
             tags.add(adapterView.getSelectedItem().toString());
             manager.getRandomRecipes(RandomRecipesResponseListener, tags);
-            dialog.show();
+            if(checkInternet()) {
+                dialog.show();
+            }
         }
 
         @Override
@@ -92,16 +102,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        dialog = new ProgressDialog(this);
-        dialog.setTitle("Loading...");
-
+//Check is internet connected or not
+        if(!checkInternet()){
+            NoInternetDiaload noInternetDialoag = new NoInternetDiaload(MainActivity.this);
+            noInternetDialoag.setCancelable(false);
+            noInternetDialoag.getWindow().setBackgroundDrawable( new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+            noInternetDialoag.show();
+        }
+        if(checkInternet()) {
+            dialog = new ProgressDialog(this);
+            dialog.setTitle("Loading...");
+        }
         searchView = findViewById(R.id.SearchView_Home);
         menu_opener_image = findViewById(R.id.menu_opener_image);
         navigationView = findViewById(R.id.navigation_view);
         drawerLayout = findViewById(R.id.drawer_layout);
         contentView = findViewById(R.id.content);
         spinner = findViewById(R.id.spinner_tags);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         navigationView();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -217,8 +235,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent8 = new Intent(getApplicationContext(), Insert_Data.class);
                 startActivity(intent8);
                 break;
+            case R.id.Navigation_bar_item_Share:
+                Intent intent9 = new Intent(Intent.ACTION_SEND);
+                intent9.setType("text/plain");
+                intent9.putExtra(Intent.EXTRA_SUBJECT,"Check Out This New Recipes App");
+                intent9.putExtra(Intent.EXTRA_SUBJECT,"Don't Forget to Give Star");
+                intent9.putExtra(Intent.EXTRA_SUBJECT,"Source Code:https://github.com/vishalkumar456/food-recipe-android-app");
+                startActivity(Intent.createChooser(intent9,"Share Via:"));
 
         }
         return true;
+    }
+    private boolean checkInternet(){
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

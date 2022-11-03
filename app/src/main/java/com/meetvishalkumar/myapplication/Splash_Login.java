@@ -11,8 +11,13 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Splash_Login extends AppCompatActivity {
     Button Login_Button, Signup_Button, How_We_Work_Button;
+    private FirebaseAuth mAuth;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +27,12 @@ public class Splash_Login extends AppCompatActivity {
         Signup_Button = findViewById(R.id.Signup_Button);
         Login_Button = findViewById(R.id.Login_Button);
         How_We_Work_Button = findViewById(R.id.How_We_Work_Button);
-
+        mAuth = FirebaseAuth.getInstance();
+        if (mAuth.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), Profile.class));
+            finish();
+        }
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
     }
 
