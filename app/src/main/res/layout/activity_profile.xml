@@ -232,7 +232,8 @@
                         android:drawableLeft="@drawable/height_20"
                         android:drawablePadding="10dp"
                         android:nextFocusUp="@color/dark_red"
-                        android:text="9 Feet" />
+                        android:text="9 Feet"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -250,7 +251,8 @@
                         android:background="@color/white"
                         android:drawableLeft="@drawable/weight_20"
                         android:drawablePadding="10dp"
-                        android:text="20 Kg" />
+                        android:text="20 Kg"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
