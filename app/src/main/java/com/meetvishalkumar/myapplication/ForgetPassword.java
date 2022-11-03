@@ -1,8 +1,13 @@
 package com.meetvishalkumar.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -17,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 
@@ -33,6 +39,13 @@ public class ForgetPassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password);
+        if (!checkInternet()) {
+            NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+            noInternetDialoag.setCancelable(false);
+            noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+            noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+            noInternetDialoag.show();
+        }
         forget_password_Email = findViewById(R.id.forget_password_Email);
         EditInputEditText_Email = findViewById(R.id.EditInputEditText_Email);
         progressBar = findViewById(R.id.progressBar);
@@ -42,13 +55,26 @@ public class ForgetPassword extends AppCompatActivity {
         forget_password_next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!checkInternet()) {
+                    NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+                    noInternetDialoag.setCancelable(false);
+                    noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                    noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                    noInternetDialoag.show();
+                }
                 resetPassword();
             }
         });
         forget_password_back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if (!checkInternet()) {
+                    NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+                    noInternetDialoag.setCancelable(false);
+                    noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                    noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                    noInternetDialoag.show();
+                }
                 startActivity(new Intent(ForgetPassword.this, Login.class));
             }
         });
@@ -94,5 +120,11 @@ public class ForgetPassword extends AppCompatActivity {
             forget_password_Email.setErrorEnabled(false);
             return true;
         }
+    }
+    private boolean checkInternet() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

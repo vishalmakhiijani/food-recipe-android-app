@@ -1,6 +1,10 @@
 package com.meetvishalkumar.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,6 +27,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
 import com.meetvishalkumar.myapplication.LoginOrSignup.RigesterUser;
 
 import java.util.Calendar;
@@ -43,6 +48,13 @@ public class Signup_Second extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        if (!checkInternet()) {
+            NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+            noInternetDialoag.setCancelable(false);
+            noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+            noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+            noInternetDialoag.show();
+        }
         setContentView(R.layout.activity_signup_second);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
@@ -60,6 +72,13 @@ public class Signup_Second extends AppCompatActivity {
         signup_back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!checkInternet()) {
+                    NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+                    noInternetDialoag.setCancelable(false);
+                    noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                    noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                    noInternetDialoag.show();
+                }
                 startActivity(new Intent(getApplicationContext(), Signup.class));
                 finish();
             }
@@ -67,6 +86,13 @@ public class Signup_Second extends AppCompatActivity {
         signup_next_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!checkInternet()) {
+                    NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+                    noInternetDialoag.setCancelable(false);
+                    noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                    noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                    noInternetDialoag.show();
+                }
                 RigesterUser();
             }
         });
@@ -143,6 +169,11 @@ public class Signup_Second extends AppCompatActivity {
         } else
             return true;
     }
-
+    private boolean checkInternet() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 
 }

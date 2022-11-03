@@ -1,9 +1,14 @@
 package com.meetvishalkumar.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -16,6 +21,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
+import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 
@@ -32,6 +38,13 @@ public class meal_planner extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_planner);
+        if (!checkInternet()) {
+            NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+            noInternetDialoag.setCancelable(false);
+            noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+            noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+            noInternetDialoag.show();
+        }
 
         menu_opener_image = findViewById(R.id.menu_opener_image);
         navigationView = findViewById(R.id.navigation_view);
@@ -131,4 +144,11 @@ public class meal_planner extends AppCompatActivity implements NavigationView.On
         return true;
     }
     //        Navigation Drawer Setting End
+
+    private boolean checkInternet() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 }

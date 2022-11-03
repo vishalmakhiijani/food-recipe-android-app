@@ -1,6 +1,10 @@
 package com.meetvishalkumar.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -20,6 +24,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
 
 public class Login extends AppCompatActivity {
     ProgressBar progressBar;
@@ -33,6 +38,13 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
+        if (!checkInternet()) {
+            NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+            noInternetDialoag.setCancelable(false);
+            noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+            noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+            noInternetDialoag.show();
+        }
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), Profile.class));
@@ -48,24 +60,52 @@ public class Login extends AppCompatActivity {
         login_back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!checkInternet()) {
+                    NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+                    noInternetDialoag.setCancelable(false);
+                    noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                    noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                    noInternetDialoag.show();
+                }
                 startActivity(new Intent(Login.this, Splash_Login.class));
             }
         });
         Button_Forget_Password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!checkInternet()) {
+                    NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+                    noInternetDialoag.setCancelable(false);
+                    noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                    noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                    noInternetDialoag.show();
+                }
                 startActivity(new Intent(Login.this, ForgetPassword.class));
             }
         });
         Button_Create_Account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!checkInternet()) {
+                    NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+                    noInternetDialoag.setCancelable(false);
+                    noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                    noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                    noInternetDialoag.show();
+                }
                 startActivity(new Intent(Login.this, Signup.class));
             }
         });
         letTheUserLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!checkInternet()) {
+                    NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+                    noInternetDialoag.setCancelable(false);
+                    noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                    noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                    noInternetDialoag.show();
+                }
                 UserLogin();
             }
         });
@@ -152,6 +192,12 @@ public class Login extends AppCompatActivity {
     public void onBackPressed() {
         startActivity(new Intent(getApplicationContext(), Splash_Login.class));
         finish();
+    }
+    private boolean checkInternet() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 }

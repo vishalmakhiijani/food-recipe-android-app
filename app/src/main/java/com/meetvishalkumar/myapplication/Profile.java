@@ -1,9 +1,14 @@
 package com.meetvishalkumar.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,6 +31,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.meetvishalkumar.myapplication.Adapters.Insert_Data;
+import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
 import com.meetvishalkumar.myapplication.LoginOrSignup.RigesterUser;
 
 import java.util.Calendar;
@@ -52,6 +58,13 @@ public class Profile extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        if (!checkInternet()) {
+            NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+            noInternetDialoag.setCancelable(false);
+            noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+            noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+            noInternetDialoag.show();
+        }
         findViws();
         navigationView();
         if(FirebaseAuth.getInstance().getCurrentUser()==null){
@@ -65,8 +78,16 @@ public class Profile extends AppCompatActivity
             reference.child(UserID).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (!checkInternet()) {
+                        NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+                        noInternetDialoag.setCancelable(false);
+                        noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                        noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                        noInternetDialoag.show();
+                    }
                     RigesterUser UserProfile = snapshot.getValue(RigesterUser.class);
                     if (UserProfile != null) {
+
                         String FullName = UserProfile._fullname;
                         String Email = UserProfile._email;
                         String Password = UserProfile._password;
@@ -214,4 +235,10 @@ public class Profile extends AppCompatActivity
         return true;
     }
     //        Navigation Drawer Setting End
+    private boolean checkInternet() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 }

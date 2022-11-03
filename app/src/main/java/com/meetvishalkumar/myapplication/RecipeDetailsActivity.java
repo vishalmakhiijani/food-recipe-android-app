@@ -4,13 +4,18 @@ import static com.meetvishalkumar.myapplication.R.id.Navigation_bar_item_login;
 
 import android.animation.LayoutTransition;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.Html;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -35,7 +40,8 @@ import com.meetvishalkumar.myapplication.Listeners.InstructionsListener;
 import com.meetvishalkumar.myapplication.Listeners.RecipeClickListener;
 import com.meetvishalkumar.myapplication.Listeners.RecipeDetailsListener;
 import com.meetvishalkumar.myapplication.Listeners.SimilarRecipesListener;
-import com.meetvishalkumar.myapplication.Loading_Animation.Recipe_Loading_Screen;
+import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
+import com.meetvishalkumar.myapplication.Loading_Animation.RecipeLoading;
 import com.meetvishalkumar.myapplication.Models.InstructionsResponse;
 import com.meetvishalkumar.myapplication.Models.RecipeDetailsResponse;
 import com.meetvishalkumar.myapplication.Models.SimilarRecipeResponse;
@@ -64,15 +70,19 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
     ImageView ImageView_meal_image;
     RecyclerView recycler_meal_ingrediets, Recycler_meal_similar, Recycler_meal_instructions;
     RequestManager manager;
-    ProgressDialog dialog;
     IngredientsAdapter ingredientsAdapter;
+    private RecipeLoading recipeLoading;
     private final RecipeDetailsListener recipeDetailsListener = new RecipeDetailsListener() {
+
         @Override
         public void didFetch(RecipeDetailsResponse response, String message) {
-            dialog.dismiss();
-//             Recipe_Loading_Screen recipe_Loading_Screenn = new Recipe_Loading_Screen(RecipeDetailsActivity.this);
-//            recipe_Loading_Screenn.Dismiss();
-//            recipe_Loading_Screenn.Dismiss_loading_Alert_Dailog_Recipe();
+            if (!checkInternet()) {
+                NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+                noInternetDialoag.setCancelable(false);
+                noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                noInternetDialoag.show();
+            }
             textView_meal_ready.setText(response.readyInMinutes + " Minutes");
             textView_meal_price.setText(response.pricePerServing + "$ Per Serving");
             textView_meal_servings.setText(response.servings + " Persons");
@@ -84,6 +94,12 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
             recycler_meal_ingrediets.setLayoutManager(new LinearLayoutManager(RecipeDetailsActivity.this, LinearLayoutManager.HORIZONTAL, false));
             ingredientsAdapter = new IngredientsAdapter(RecipeDetailsActivity.this, response.extendedIngredients);
             recycler_meal_ingrediets.setAdapter(ingredientsAdapter);
+
+            //Loading
+            recipeLoading.hide();
+            recipeLoading.cancel();
+            recipeLoading.dismiss();
+            recipeLoading.hide();
         }
 
         @Override
@@ -126,16 +142,21 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
     NavigationView navigationView;
     ImageView menu_opener_image;
     LinearLayout contentView;
-    Recipe_Loading_Screen recipe_loading_screen;
     private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_details);
+        if (!checkInternet()) {
+            NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+            noInternetDialoag.setCancelable(false);
+            noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+            noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+            noInternetDialoag.show();
+        }
         findViews();
         navigationView();
-        Recipe_Loading_Screen recipe_Loading_Screen = new Recipe_Loading_Screen(RecipeDetailsActivity.this);
 
         Layout_Expand.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
@@ -144,13 +165,11 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         manager.getRecipeDetials(recipeDetailsListener, id);
         manager.getSimilarRecipes(similarRecipesListener, id);
         manager.getInstructions(instructionsListener, id);
-        dialog = new ProgressDialog(this);
-        dialog.setTitle("Loading Details...");
-        dialog.show();
-//        recipe_Loading_Screen.Start_loading_Alert_Dailog_Recipe();
+        recipeLoading.show();
 
 
     }
+
 
     private void findViews() {
         textView_meal_ready = findViewById(R.id.textView_meal_ready);
@@ -170,8 +189,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         drawerLayout = findViewById(R.id.drawer_layout);
         contentView = findViewById(R.id.content);
 
-//        Custom Loading Animation For Recipe Details
-//        final Recipe_Loading_Screen recipe_Loading_Screen = new Recipe_Loading_Screen(RecipeDetailsActivity.this);
+        recipeLoading = new RecipeLoading(this);
     }
 
     public void ExpandView(View view) {
@@ -273,4 +291,10 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         return true;
     }
     //        Navigation Drawer Setting End
+    private boolean checkInternet() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 }

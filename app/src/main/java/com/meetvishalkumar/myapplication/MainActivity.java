@@ -1,6 +1,5 @@
 package com.meetvishalkumar.myapplication;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +9,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             tags.clear();
             tags.add(adapterView.getSelectedItem().toString());
             manager.getRandomRecipes(RandomRecipesResponseListener, tags);
-            if(checkInternet()) {
+            if (checkInternet()) {
                 dialog.show();
             }
         }
@@ -103,13 +103,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //Check is internet connected or not
-        if(!checkInternet()){
+        if (!checkInternet()) {
             NoInternetDiaload noInternetDialoag = new NoInternetDiaload(MainActivity.this);
             noInternetDialoag.setCancelable(false);
-            noInternetDialoag.getWindow().setBackgroundDrawable( new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+            noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+            noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
             noInternetDialoag.show();
         }
-        if(checkInternet()) {
+        if (checkInternet()) {
             dialog = new ProgressDialog(this);
             dialog.setTitle("Loading...");
         }
@@ -238,15 +239,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.Navigation_bar_item_Share:
                 Intent intent9 = new Intent(Intent.ACTION_SEND);
                 intent9.setType("text/plain");
-                intent9.putExtra(Intent.EXTRA_SUBJECT,"Check Out This New Recipes App");
-                intent9.putExtra(Intent.EXTRA_SUBJECT,"Don't Forget to Give Star");
-                intent9.putExtra(Intent.EXTRA_SUBJECT,"Source Code:https://github.com/vishalkumar456/food-recipe-android-app");
-                startActivity(Intent.createChooser(intent9,"Share Via:"));
+                intent9.putExtra(Intent.EXTRA_SUBJECT, "Check Out This New Recipes App");
+                intent9.putExtra(Intent.EXTRA_SUBJECT, "Don't Forget to Give Star");
+                intent9.putExtra(Intent.EXTRA_SUBJECT, "Source Code:https://github.com/vishalkumar456/food-recipe-android-app");
+                startActivity(Intent.createChooser(intent9, "Share Via:"));
 
         }
         return true;
     }
-    private boolean checkInternet(){
+
+    private boolean checkInternet() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
