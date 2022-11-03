@@ -1,7 +1,9 @@
 # food-recipe-android-app
 Semester 4 android  project at aptech pakistan </br></br>
 Made with Java </br>
-working things</br>
+Features</br>
+-will show min of 50 recipes to user on homepage</br>
+-after openning one recipe at the end user will get some similar suggested recipes</br>
 -user login with email verification</br>
 -forget password</br>
 -kitchen tips and tricks working</br>
