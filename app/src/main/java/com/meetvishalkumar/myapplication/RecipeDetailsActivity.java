@@ -3,7 +3,6 @@ package com.meetvishalkumar.myapplication;
 import static com.meetvishalkumar.myapplication.R.id.Navigation_bar_item_login;
 
 import android.animation.LayoutTransition;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -32,7 +31,6 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.meetvishalkumar.myapplication.Adapters.IngredientsAdapter;
-import com.meetvishalkumar.myapplication.Adapters.Insert_Data;
 import com.meetvishalkumar.myapplication.Adapters.InstructionsAdapter;
 import com.meetvishalkumar.myapplication.Adapters.SimilarRecipeAdapter;
 import com.meetvishalkumar.myapplication.Listeners.CustomOnClickListener;

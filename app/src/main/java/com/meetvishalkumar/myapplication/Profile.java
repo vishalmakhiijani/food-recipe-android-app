@@ -30,7 +30,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.meetvishalkumar.myapplication.Adapters.Insert_Data;
 import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
 import com.meetvishalkumar.myapplication.LoginOrSignup.RigesterUser;
 

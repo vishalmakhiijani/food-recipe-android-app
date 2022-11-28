@@ -1,15 +1,11 @@
 package com.meetvishalkumar.myapplication;
 
-import static androidx.core.content.PackageManagerCompat.LOG_TAG;
-
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -32,7 +28,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
-import com.meetvishalkumar.myapplication.Adapters.Insert_Data;
 import com.meetvishalkumar.myapplication.Adapters.RandomRecipeAdapter;
 import com.meetvishalkumar.myapplication.Listeners.RandomRecipesResponseListener;
 import com.meetvishalkumar.myapplication.Listeners.RecipeClickListener;
