@@ -95,7 +95,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
             ingredientsAdapter = new IngredientsAdapter(RecipeDetailsActivity.this, response.extendedIngredients);
             recycler_meal_ingrediets.setAdapter(ingredientsAdapter);
 
-            //Loading
+            //to hide loading
             recipeLoading.hide();
             recipeLoading.cancel();
             recipeLoading.dismiss();
@@ -165,6 +165,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         manager.getRecipeDetials(recipeDetailsListener, id);
         manager.getSimilarRecipes(similarRecipesListener, id);
         manager.getInstructions(instructionsListener, id);
+//        TO SHow loading
         recipeLoading.show();
 
 
@@ -188,7 +189,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         navigationView = findViewById(R.id.navigation_view);
         drawerLayout = findViewById(R.id.drawer_layout);
         contentView = findViewById(R.id.content);
-
+//          Calling Loading
         recipeLoading = new RecipeLoading(this);
     }
 

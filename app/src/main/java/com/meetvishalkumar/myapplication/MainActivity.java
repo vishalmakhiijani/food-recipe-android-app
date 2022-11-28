@@ -1,5 +1,7 @@
 package com.meetvishalkumar.myapplication;
 
+import static androidx.core.content.PackageManagerCompat.LOG_TAG;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -24,6 +27,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -33,6 +37,7 @@ import com.meetvishalkumar.myapplication.Adapters.RandomRecipeAdapter;
 import com.meetvishalkumar.myapplication.Listeners.RandomRecipesResponseListener;
 import com.meetvishalkumar.myapplication.Listeners.RecipeClickListener;
 import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
+import com.meetvishalkumar.myapplication.Loading_Animation.RecipeLoading;
 import com.meetvishalkumar.myapplication.Models.RandomRecipeApiResponse;
 
 import java.util.ArrayList;
@@ -53,11 +58,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FirebaseAnalytics mFirebaseAnalytics;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    ProgressDialog dialog;
     RequestManager manager;
     RandomRecipeAdapter randomRecipeAdapter;
     RecyclerView RecyclerView;
-    //        Navigation Drawer Setting End
+    SwipeRefreshLayout swipeRefreshLayout;
+//    Loading
+    private RecipeLoading recipeLoading;
     private final RandomRecipesResponseListener RandomRecipesResponseListener = new RandomRecipesResponseListener() {
         @Override
         public void didFetch(RandomRecipeApiResponse response, String message) {
@@ -67,7 +73,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             RecyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 1));
             randomRecipeAdapter = new RandomRecipeAdapter(MainActivity.this, response.recipes, recipeClickListener);
             RecyclerView.setAdapter(randomRecipeAdapter);
-            dialog.dismiss();
+            //to hide loading
+            recipeLoading.hide();
+            recipeLoading.cancel();
+            recipeLoading.dismiss();
+            recipeLoading.hide();
         }
 
         @Override
@@ -84,7 +94,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             tags.add(adapterView.getSelectedItem().toString());
             manager.getRandomRecipes(RandomRecipesResponseListener, tags);
             if (checkInternet()) {
-                dialog.show();
+                //        TO SHow loading
+                recipeLoading.show();
             }
         }
 
@@ -102,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 //Check is internet connected or not
         if (!checkInternet()) {
             NoInternetDiaload noInternetDialoag = new NoInternetDiaload(MainActivity.this);
@@ -110,18 +122,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
             noInternetDialoag.show();
         }
-        if (checkInternet()) {
-            dialog = new ProgressDialog(this);
-            dialog.setTitle("Loading...");
-        }
+
         searchView = findViewById(R.id.SearchView_Home);
         menu_opener_image = findViewById(R.id.menu_opener_image);
         navigationView = findViewById(R.id.navigation_view);
         drawerLayout = findViewById(R.id.drawer_layout);
         contentView = findViewById(R.id.content);
         spinner = findViewById(R.id.spinner_tags);
+        swipeRefreshLayout=findViewById(R.id.swiperefresh);
+        //          Calling Loading
+        recipeLoading = new RecipeLoading(this);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         navigationView();
+        //        Refresh Activity Code
+
+
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -129,7 +144,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 tags.clear();
                 tags.add(query);
                 manager.getRandomRecipes(RandomRecipesResponseListener, tags);
-                dialog.show();
+                //        TO SHow loading
+                recipeLoading.show();
                 return true;
             }
 
@@ -254,4 +270,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
+    /*
+     * Listen for option item selections so that we receive a notification
+     * when the user requests a refresh by selecting the refresh action bar item.
+     */
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//
+//            // Check if user triggered a refresh:
+//            case R.id.menu_refresh:
+//                Log.i(LOG_TAG, "Refresh menu item selected");
+//
+//                // Signal SwipeRefreshLayout to start the progress indicator
+//                mySwipeRefreshLayout.setRefreshing(true);
+//
+//                // Start the refresh background task.
+//                // This method calls setRefreshing(false) when it's finished.
+//                myUpdateOperation();
+//
+//                return true;
+//        }
+//
+//        // User didn't trigger a refresh, let the superclass handle this action
+//        return super.onOptionsItemSelected(item);
+//    }
+    /*
+     * Sets up a SwipeRefreshLayout.OnRefreshListener that is invoked when the user
+     * performs a swipe-to-refresh gesture.
+     */
+    /*
+     * Listen for option item selections so that we receive a notification
+     * when the user requests a refresh by selecting the refresh action bar item.
+     */
+
+
+
 }

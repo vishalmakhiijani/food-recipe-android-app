@@ -1,4 +1,4 @@
-package com.meetvishalkumar.myapplication;
+package com.meetvishalkumar.myapplication.Models;
 
 public class Show_Data_Tips_Tricks {
     private String name;

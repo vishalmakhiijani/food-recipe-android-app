@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.meetvishalkumar.myapplication.R;
-import com.meetvishalkumar.myapplication.Show_Data_Tips_Tricks;
+import com.meetvishalkumar.myapplication.Models.Show_Data_Tips_Tricks;
 
 import java.util.List;
 

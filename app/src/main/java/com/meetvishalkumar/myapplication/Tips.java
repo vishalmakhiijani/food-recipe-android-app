@@ -32,10 +32,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.meetvishalkumar.myapplication.Adapters.Get_Tips_Tricks;
 import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
-import com.meetvishalkumar.myapplication.LoginOrSignup.RigesterUser;
+import com.meetvishalkumar.myapplication.Models.Show_Data_Tips_Tricks;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import io.github.muddz.styleabletoast.StyleableToast;
