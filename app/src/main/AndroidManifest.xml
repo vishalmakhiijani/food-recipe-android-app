@@ -32,7 +32,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Adapters.Insert_Data"
+            android:name=".Insert_Data"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
