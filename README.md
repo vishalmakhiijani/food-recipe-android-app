@@ -10,10 +10,6 @@ Made with Java, Android Studio, Spoonularapi </br>
 -recipe section </br>
 -No Internet Connection Banner</br>
 </br></br>
-<h1><b>Upcoming update</b></h1></br>
--Grocery shopping(ToDo)</br>
-<h3>Current Issues </h3><br>
--application crashing at submit data for tips and tricks for navigation menu<br>
 <h1> <b>Screen Shots of Application</b> </h1>
 
 ![login](https://user-images.githubusercontent.com/59371369/199755865-a658bd71-78de-48c9-8a30-4d6c3a1703b2.png)
