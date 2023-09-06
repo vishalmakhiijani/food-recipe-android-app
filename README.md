@@ -1,14 +1,48 @@
-# food-recipe-android-app
-Semester 4 android  project at aptech pakistan </br>
-Made with Java, Android Studio, Spoonular api </br>
-<h1><b>Features</b></h1></br>
--will show min of 50 recipes to user on homepage</br>
--after openning one recipe at the end user will get some similar suggested recipes</br>
--user login with email verification</br>
--forget password</br>
--kitchen tips and tricks working</br>
--recipe section </br>
--No Internet Connection Banner</br>
+
+# Tasty Tips
+
+With the help of the spoonacular api, users of the Tasty Tips android app can access for recipes based on keywords and browse recipe information.
+
+## Features
+
+- Random Recipes on Homepage
+- Recipe Image
+- users can create, edit update their accounts
+- similar suggested recipes
+- user login with email verification
+- forget password
+
+
+## Installation
+
+
+Clone the git repo:
+
+```
+https://github.com/vishalmakhiijani/food-recipe-android-app.git
+```
+    
+### Built With
+* [Android Studio](https://developer.android.com/studio/index.html) - The IDE used for development on Android Environment
+* [Gradle](https://gradle.org/) - Built Automation System and Dependency Management
+* [Spoonacular Api](https://spoonacular.com/) - Used to Get Food Recipies 
+## Feedback
+
+If you have any feedback, please reach out to me at VishalMakhijani@pm.me
+
+
+## Roadmap
+
+- Optimize it more
+- Fix Crashes
+- Add Meal Plan 
+
+
+## Author
+
+- [@Vishal Makhijani](https://www.github.com/vishalmakhiijani)
+
+
 </br></br>
 <h1> <b>Screen Shots of Application</b> </h1>
 
