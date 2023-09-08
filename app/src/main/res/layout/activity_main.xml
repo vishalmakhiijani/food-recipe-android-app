@@ -6,27 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
+
+    <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvItems"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-
         android:background="@color/light_blue"
         app:headerLayout="@layout/menu_header"
         app:menu="@menu/navigation_menu" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <LinearLayout
         android:id="@+id/content"
@@ -34,7 +35,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
+
+            <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/dark_red">
@@ -51,7 +53,6 @@
                     android:src="@drawable/menu_50" />
 
                 <Spinner
-
                     android:id="@+id/spinner_tags"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -64,7 +65,7 @@
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
 
-        <TextView
+            <TextView
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:fontFamily="@font/islandmoments"
@@ -73,10 +74,9 @@
             android:text="@string/app_name"
             android:textAlignment="center"
             android:textSize="30sp"
-android:textColor="@color/black"
-            />
+            android:textColor="@color/black" />
 
-        <androidx.cardview.widget.CardView
+            <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_margin="12dp"
@@ -92,13 +92,12 @@ android:textColor="@color/black"
                 app:queryHint="Search..." />
         </androidx.cardview.widget.CardView>
 
-        <androidx.recyclerview.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_View"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="4dp"
             android:padding="10dp" />
-
 
     </LinearLayout>
 

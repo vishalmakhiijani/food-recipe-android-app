@@ -32,7 +32,7 @@
         android:layout_height="100dp"
         android:layout_above="@id/menu_name"
         android:layout_marginLeft="15dp"
-        android:src="@drawable/app_logo_c_nobg" />
+        android:src="@drawable/app_logo_new" />
 
 
 </RelativeLayout>

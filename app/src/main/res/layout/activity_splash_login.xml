@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/background_login"
     android:padding="30dp"
     tools:context=".Splash_Login">
 
@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:padding="5dp"
-            android:src="@drawable/circle_100" />
+            android:src="@drawable/app_logo_new" />
 
         <TextView
             android:layout_width="match_parent"
@@ -26,18 +26,16 @@
             android:fontFamily="@font/muli_black"
             android:text="@string/app_name"
             android:textAlignment="center"
-
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="40sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:fontFamily="@font/muli"
             android:text="Passionate about food"
             android:textAlignment="center"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:background="@color/dark_red"
+                android:background="@color/off_white"
                 android:onClick="send_user_login"
                 android:text="Login"
                 android:textColor="@color/black"
@@ -62,7 +60,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/dark_red"
+                android:background="@color/off_white"
                 android:onClick="send_user_signup"
                 android:text="Signup"
                 android:textColor="@color/black"
@@ -79,7 +77,7 @@
             android:background="#00000000"
             android:onClick="play_audio_meme"
             android:text="How We Work"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold" />
     </LinearLayout>
 
