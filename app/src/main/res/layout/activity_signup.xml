@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_red"
+    android:background="@color/off_white"
     android:padding="30dp"
     android:transitionName="transition_signup"
     tools:context=".Signup">
@@ -121,7 +121,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Email"
+                android:hint="@string/enter_email"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
