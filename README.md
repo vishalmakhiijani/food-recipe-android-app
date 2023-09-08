@@ -31,11 +31,6 @@ https://github.com/vishalmakhiijani/food-recipe-android-app.git
 If you have any feedback, please reach out to me at VishalMakhijani@pm.me
 
 
-## Roadmap
-
-- Optimize it more
-- Fix Crashes
-- Add Meal Plan 
 
 
 ## Author
