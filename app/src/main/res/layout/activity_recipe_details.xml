@@ -16,7 +16,7 @@
 
         android:background="@color/light_blue"
         app:headerLayout="@layout/menu_header"
-        app:menu="@menu/navigation_menu" />
+        app:menu="@menu/main_menu" />
 
     <LinearLayout
         android:id="@+id/content"
@@ -63,6 +63,24 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+
+
+                <TextView
+                    android:id="@+id/textView_Meal_Source"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Source"
+                    android:textSize="0sp"
+                    android:textStyle="italic" />
+
+
+                <ImageView
+                    android:id="@+id/ImageView_meal_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:scaleType="centerCrop" />
                 <TextView
                     android:id="@+id/TextView_Meal_Name"
                     android:layout_width="match_parent"
@@ -75,28 +93,36 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
+
                 <TextView
-                    android:id="@+id/textView_Meal_Source"
+                    android:id="@+id/textView_meal_servings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:drawableStart="@drawable/people_50"
+                    android:drawablePadding="8dp"
                     android:padding="8dp"
-                    android:text="Source"
-                    android:textSize="0sp"
-                    android:textStyle="italic" />
+                    android:text="2 Persons"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/ImageView_meal_image"
+                <TextView
+                    android:id="@+id/textView_meal_ready"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:scaleType="centerCrop" />
-
-                <Button
-                    android:id="@+id/button_nutrition"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/send_all_ingredients_to_shopping_list"
-                    android:textAllCaps="false" />
+                    android:layout_centerVertical="true"
+                    android:drawableStart="@drawable/timer_50"
+                    android:drawablePadding="8dp"
+                    android:padding="8dp"
+                    android:text="20 Minutes"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+
+
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -163,44 +189,7 @@
                     android:layout_margin="8dp" />
 
 
-                <TextView
-                    android:id="@+id/textView_meal_servings"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:drawableStart="@drawable/people_50"
-                    android:drawablePadding="8dp"
-                    android:padding="8dp"
-                    android:text="2 Persons"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/textView_meal_ready"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:drawableStart="@drawable/timer_50"
-                    android:drawablePadding="8dp"
-                    android:padding="8dp"
-                    android:text="20 Minutes"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/textView_meal_price"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:drawableStart="@drawable/us_dollar_circled_48"
-                    android:drawablePadding="8dp"
-                    android:padding="8dp"
-                    android:text="20 $"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.meetvishalkumar.myapplication.LoginOrSignup;
+package com.meetvishalkumar.myapplication.UserAccount;
 
 
 public class RigesterUser {

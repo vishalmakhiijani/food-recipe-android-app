@@ -7,7 +7,7 @@
     android:background="@drawable/login_signup_backgroud"
     android:padding="30dp"
     android:transitionName="transition_login"
-    tools:context=".Login">
+    tools:context=".UserAccount.Login">
 
 
     <LinearLayout
@@ -27,7 +27,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:fontFamily="@font/muli_black"
-            android:text="@string/login"
+            android:text="Welcome"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="40sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/muli_black"
+            android:text="Back"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="40sp" />

@@ -1,4 +1,4 @@
-package com.meetvishalkumar.myapplication;
+package com.meetvishalkumar.myapplication.UserAccount;
 
 import android.content.Context;
 import android.content.Intent;
@@ -28,7 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
-import com.meetvishalkumar.myapplication.LoginOrSignup.RigesterUser;
+import com.meetvishalkumar.myapplication.R;
 
 import java.util.Calendar;
 

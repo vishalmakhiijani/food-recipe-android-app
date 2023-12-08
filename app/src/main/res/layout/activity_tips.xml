@@ -15,7 +15,7 @@
 
         android:background="@color/light_blue"
         app:headerLayout="@layout/menu_header"
-        app:menu="@menu/navigation_menu" />
+        app:menu="@menu/main_menu" />
 
     <LinearLayout
         android:id="@+id/content"

@@ -1,4 +1,4 @@
-package com.meetvishalkumar.myapplication;
+package com.meetvishalkumar.myapplication.UserAccount;
 
 import android.content.Context;
 import android.content.Intent;
@@ -30,8 +30,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.meetvishalkumar.myapplication.Insert_Data;
 import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
-import com.meetvishalkumar.myapplication.LoginOrSignup.RigesterUser;
+import com.meetvishalkumar.myapplication.Loading_Animation.RecipeLoading;
+import com.meetvishalkumar.myapplication.MainActivity;
+import com.meetvishalkumar.myapplication.R;
+import com.meetvishalkumar.myapplication.Tips;
+import com.meetvishalkumar.myapplication.meal_planner;
 
 import java.util.Calendar;
 
@@ -52,6 +57,9 @@ public class Profile extends AppCompatActivity
     private String UserID;
     private FirebaseAuth mAuth;
     private FirebaseAnalytics mFirebaseAnalytics;
+    private RecipeLoading recipeLoading;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +74,11 @@ public class Profile extends AppCompatActivity
         }
         findViws();
         navigationView();
+        //          Calling Loading
+        recipeLoading = new RecipeLoading(this);
+        //        TO SHow loading
+        recipeLoading.show();
+
         if(FirebaseAuth.getInstance().getCurrentUser()==null){
             Toast.makeText(this, "You are not logged in", Toast.LENGTH_SHORT).show();
             Intent intent3 = new Intent(getApplicationContext(), Splash_Login.class);
@@ -103,10 +116,14 @@ public class Profile extends AppCompatActivity
                         TextView_UserName_Main.setText(Username);
                         EditInputEditText_Fullname.setText(FullName);
                         EditInputEditText_Email.setText(Email);
-                        EditInputEditText_Age.setText(Age);
                         EditInputEditText_Password.setText(Password);
                         EditInputEditText_Gender.setText(Gender);
                         EditInputEditText_DOB.setText(Date);
+                        //to hide loading
+                        recipeLoading.hide();
+                        recipeLoading.cancel();
+                        recipeLoading.dismiss();
+                        recipeLoading.hide();
 
                     }
                 }
@@ -131,12 +148,9 @@ public class Profile extends AppCompatActivity
         EditInputEditText_Fullname = findViewById(R.id.EditInputEditText_Fullname);
         EditInputEditText_Email = findViewById(R.id.EditInputEditText_Email);
         EditInputEditText_Password = findViewById(R.id.EditInputEditText_Password);
-        EditInputEditText_Age = findViewById(R.id.EditInputEditText_Age);
         Profile_Update_Button = findViewById(R.id.Profile_Update_Button);
         EditInputEditText_Gender = findViewById(R.id.EditInputEditText_Gender);
         EditInputEditText_DOB = findViewById(R.id.EditInputEditText_DOB);
-        EditInputEditText_Height = findViewById(R.id.EditInputEditText_Height);
-        EditInputEditText_Weight = findViewById(R.id.EditInputEditText_Weight);
     }
 
     //        Navigation Drawer Setting Start
@@ -209,27 +223,29 @@ public class Profile extends AppCompatActivity
                 break;
             case R.id.Navigation_bar_item_login:
                 StyleableToast.makeText(getApplicationContext(), "You Are Already Logged in", Toast.LENGTH_SHORT, R.style.OnActivity).show();
-
                 break;
             case R.id.Navigation_bar_item_logout:
                 mAuth = FirebaseAuth.getInstance();
                 FirebaseAuth.getInstance().signOut();
                 StyleableToast.makeText(getApplicationContext(), "You Successfully Logged out", Toast.LENGTH_SHORT, R.style.OnActivity).show();
-
                 Intent intent3 = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent3);
                 break;
             case R.id.Navigation_bar_item_Profile:
                 StyleableToast.makeText(getApplicationContext(), "You Are Already On this Activity", Toast.LENGTH_SHORT, R.style.OnActivity).show();
-
                 break;
-
             case R.id.Navigation_bar_item_Insert_Data_Screen:
                 Intent intent8 = new Intent(getApplicationContext(), Insert_Data.class);
                 startActivity(intent8);
                 break;
-
-
+            case R.id.Navigation_bar_item_Share:
+                Intent intent9 = new Intent(Intent.ACTION_SEND);
+                intent9.setType("text/plain");
+                intent9.putExtra(Intent.EXTRA_SUBJECT, "Check Out This New Recipes App");
+                intent9.putExtra(Intent.EXTRA_SUBJECT, "Don't Forget to Give It A Star");
+                intent9.putExtra(Intent.EXTRA_SUBJECT, "Source Code:https://github.com/vishalkumar456/food-recipe-android-app");
+                startActivity(Intent.createChooser(intent9, "Share Via:"));
+                break;
         }
         return true;
     }

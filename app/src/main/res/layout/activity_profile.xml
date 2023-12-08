@@ -5,7 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile">
+    tools:context=".UserAccount.Profile">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
@@ -14,7 +14,7 @@
         android:layout_gravity="start"
         android:background="@color/light_blue"
         app:headerLayout="@layout/menu_header"
-        app:menu="@menu/navigation_menu" />
+        app:menu="@menu/main_menu" />
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -57,16 +57,10 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="150dp"
                 android:background="@color/dark_red"
                 android:padding="20dp">
 
-                <ImageView
-                    android:id="@+id/ImageView_Profile_Image"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/profile" />
 
                 <TextView
                     android:id="@+id/TextView_FullName_Main"
@@ -74,7 +68,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="23dp"
-                    android:layout_toRightOf="@id/ImageView_Profile_Image"
                     android:fontFamily="@font/bungee"
                     android:includeFontPadding="false"
                     android:text="@string/vishal_makhijani"
@@ -86,7 +79,6 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/TextView_FullName_Main"
                     android:layout_marginLeft="23dp"
-                    android:layout_toRightOf="@id/ImageView_Profile_Image"
                     android:text="@string/vishal_makhijani"
                     android:textSize="14sp" />
             </RelativeLayout>
@@ -197,69 +189,11 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/TextInputLayout_Age"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Age">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/EditInputEditText_Age"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:drawableLeft="@drawable/age"
-                        android:drawablePadding="10dp"
-                        android:inputType="number"
-                        android:text="20 Years"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/TextInputLayout_Height"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Height">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/EditInputEditText_Height"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:drawableLeft="@drawable/height_20"
-                        android:drawablePadding="10dp"
-                        android:nextFocusUp="@color/dark_red"
-                        android:text="9 Feet"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/TextInputLayout_Weight"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:hint="@string/weight">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/EditInputEditText_Weight"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:drawableLeft="@drawable/weight_20"
-                        android:drawablePadding="10dp"
-                        android:text="20 Kg"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
+                    android:paddingTop="40dp"
                     app:cardBackgroundColor="@color/dark_red"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="100dp">

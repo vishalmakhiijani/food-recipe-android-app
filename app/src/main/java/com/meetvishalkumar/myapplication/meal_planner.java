@@ -22,6 +22,8 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
+import com.meetvishalkumar.myapplication.UserAccount.Profile;
+import com.meetvishalkumar.myapplication.UserAccount.Splash_Login;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 

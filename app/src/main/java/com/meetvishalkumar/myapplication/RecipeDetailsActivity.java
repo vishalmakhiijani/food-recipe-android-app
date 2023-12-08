@@ -40,6 +40,8 @@ import com.meetvishalkumar.myapplication.Listeners.RecipeDetailsListener;
 import com.meetvishalkumar.myapplication.Listeners.SimilarRecipesListener;
 import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
 import com.meetvishalkumar.myapplication.Loading_Animation.RecipeLoading;
+import com.meetvishalkumar.myapplication.UserAccount.Profile;
+import com.meetvishalkumar.myapplication.UserAccount.Splash_Login;
 import com.meetvishalkumar.myapplication.Models.InstructionsResponse;
 import com.meetvishalkumar.myapplication.Models.RecipeDetailsResponse;
 import com.meetvishalkumar.myapplication.Models.SimilarRecipeResponse;
@@ -64,8 +66,8 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
     };
     int id;
     private FirebaseAnalytics mFirebaseAnalytics;
-    TextView TextView_Meal_Name, textView_Meal_Source, textview_meal_Summary, textview_meal_Summary_Expand, textView_meal_servings, textView_meal_ready, textView_meal_price;
-    ImageView ImageView_meal_image;
+    TextView TextView_Meal_Name, textView_Meal_Source, textview_meal_Summary, textview_meal_Summary_Expand, textView_meal_servings, textView_meal_ready, textView_meal_price, ready_in, servings, healthy, instructions;
+    ImageView ImageView_meal_image, vegeterian;
     RecyclerView recycler_meal_ingrediets, Recycler_meal_similar, Recycler_meal_instructions;
     RequestManager manager;
     IngredientsAdapter ingredientsAdapter;
@@ -82,7 +84,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
                 noInternetDialoag.show();
             }
             textView_meal_ready.setText(response.readyInMinutes + " Minutes");
-            textView_meal_price.setText(response.pricePerServing + "$ Per Serving");
+//            textView_meal_price.setText(response.pricePerServing + "$ Per Serving");
             textView_meal_servings.setText(response.servings + " Persons");
             TextView_Meal_Name.setText(response.title);
             textView_Meal_Source.setText(response.sourceName);
@@ -163,6 +165,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         manager.getRecipeDetials(recipeDetailsListener, id);
         manager.getSimilarRecipes(similarRecipesListener, id);
         manager.getInstructions(instructionsListener, id);
+
 //        TO SHow loading
         recipeLoading.show();
 
@@ -172,7 +175,6 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
 
     private void findViews() {
         textView_meal_ready = findViewById(R.id.textView_meal_ready);
-        textView_meal_price = findViewById(R.id.textView_meal_price);
         textView_meal_servings = findViewById(R.id.textView_meal_servings);
         TextView_Meal_Name = findViewById(R.id.TextView_Meal_Name);
         textView_Meal_Source = findViewById(R.id.textView_Meal_Source);

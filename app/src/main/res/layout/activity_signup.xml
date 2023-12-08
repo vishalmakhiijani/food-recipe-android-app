@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/off_white"
+    android:background="#FAF9F6"
     android:padding="30dp"
     android:transitionName="transition_signup"
-    tools:context=".Signup">
+    tools:context=".UserAccount.Signup">
 
 
     <LinearLayout

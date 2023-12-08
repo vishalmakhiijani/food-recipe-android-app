@@ -1,4 +1,4 @@
-package com.meetvishalkumar.myapplication;
+package com.meetvishalkumar.myapplication.UserAccount;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
@@ -25,6 +24,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
+import com.meetvishalkumar.myapplication.R;
 
 public class Login extends AppCompatActivity {
     ProgressBar progressBar;
@@ -127,6 +127,7 @@ public class Login extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    Toast.makeText(Login.this,"",Toast.LENGTH_SHORT).show();
                     if (user.isEmailVerified()) {
                         startActivity(new Intent(Login.this, Profile.class));
                     } else {
@@ -137,6 +138,7 @@ public class Login extends AppCompatActivity {
                         login_password.setEnabled(true);
                         letTheUserLogIn.setEnabled(true);
                     }
+
 
                 } else if (!task.isSuccessful()) {
                     Toast.makeText(Login.this, "Failed To Login Try Again", Toast.LENGTH_SHORT).show();

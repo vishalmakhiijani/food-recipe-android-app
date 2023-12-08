@@ -33,6 +33,8 @@ import com.meetvishalkumar.myapplication.Listeners.RandomRecipesResponseListener
 import com.meetvishalkumar.myapplication.Listeners.RecipeClickListener;
 import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
 import com.meetvishalkumar.myapplication.Loading_Animation.RecipeLoading;
+import com.meetvishalkumar.myapplication.UserAccount.Profile;
+import com.meetvishalkumar.myapplication.UserAccount.Splash_Login;
 import com.meetvishalkumar.myapplication.Models.RandomRecipeApiResponse;
 
 import java.util.ArrayList;
@@ -109,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-//Check is internet connected or not
+        //Check is internet connected or not
         if (!checkInternet()) {
             NoInternetDiaload noInternetDialoag = new NoInternetDiaload(MainActivity.this);
             noInternetDialoag.setCancelable(false);

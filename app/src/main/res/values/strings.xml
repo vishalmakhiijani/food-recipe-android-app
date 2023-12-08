@@ -50,5 +50,6 @@
     <string name="gender">Gender</string>
     <string name="send_all_ingredients_to_shopping_list">Send All Ingredients to Shopping list</string>
     <string name="title_activity_recipe_loading">RecipeLoading</string>
+    <string name="enter_email">Enter Email</string>
     <!-- Strings used for fragments for navigation -->
 </resources>

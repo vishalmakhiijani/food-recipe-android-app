@@ -1,4 +1,4 @@
-package com.meetvishalkumar.myapplication;
+package com.meetvishalkumar.myapplication.UserAccount;
 
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +23,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
+import com.meetvishalkumar.myapplication.R;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 

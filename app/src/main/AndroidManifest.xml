@@ -16,7 +16,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".RecipeLoading"
+            android:name=".Loading_Animation.RecipeLoading"
             android:exported="false"
             android:label="@string/title_activity_recipe_loading"
             android:theme="@style/Theme.MyApplication.NoActionBar">
@@ -25,7 +25,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".NoInternetDiaload"
+            android:name=".Loading_Animation.NoInternetDiaload"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -39,42 +39,42 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ForgetPassword"
+            android:name=".UserAccount.ForgetPassword"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Signup_Second"
+            android:name=".UserAccount.Signup_Second"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Signup"
+            android:name=".UserAccount.Signup"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Splash_Login"
+            android:name=".UserAccount.Splash_Login"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Profile"
+            android:name=".UserAccount.Profile"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".UserAccount.Login"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -32,6 +32,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.meetvishalkumar.myapplication.Adapters.Get_Tips_Tricks;
 import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
+import com.meetvishalkumar.myapplication.Loading_Animation.RecipeLoading;
+import com.meetvishalkumar.myapplication.UserAccount.Profile;
+import com.meetvishalkumar.myapplication.UserAccount.Splash_Login;
 import com.meetvishalkumar.myapplication.Models.Show_Data_Tips_Tricks;
 
 import java.util.ArrayList;
@@ -55,6 +58,8 @@ public class Tips extends AppCompatActivity implements NavigationView.OnNavigati
     private String UserID;
     private FirebaseAnalytics mFirebaseAnalytics;
 
+    private RecipeLoading recipeLoading;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,11 @@ public class Tips extends AppCompatActivity implements NavigationView.OnNavigati
         drawerLayout = findViewById(R.id.drawer_layout);
         contentView = findViewById(R.id.content);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        //          Calling Loading
+        recipeLoading = new RecipeLoading(this);
+        //        TO SHow loading
+        recipeLoading.show();
+
 
         final RecyclerView recyclerView = findViewById(R.id.Show_Tips_Tricks_Recycler_View);
         recyclerView.setHasFixedSize(true);
@@ -87,6 +97,11 @@ public class Tips extends AppCompatActivity implements NavigationView.OnNavigati
                         final String getContent = tip.child("content").getValue(String.class);
                         Show_Data_Tips_Tricks show_data_tips_tricks = new Show_Data_Tips_Tricks(getName, getContent);
                         list.add(show_data_tips_tricks);
+                        //to hide loading
+                        recipeLoading.hide();
+                        recipeLoading.cancel();
+                        recipeLoading.dismiss();
+                        recipeLoading.hide();
                     }
 
                 }
@@ -167,14 +182,13 @@ public class Tips extends AppCompatActivity implements NavigationView.OnNavigati
                 startActivity(intent1);
                 break;
             case R.id.Navigation_bar_item_Tips:
-
+                StyleableToast.makeText(getApplicationContext(), "You Are Already On this Activity", Toast.LENGTH_SHORT, R.style.OnActivity).show();
                 break;
             case R.id.Navigation_bar_item_login:
                 Intent intent2 = new Intent(getApplicationContext(), Splash_Login.class);
                 startActivity(intent2);
                 break;
             case R.id.Navigation_bar_item_logout:
-
                 mAuth = FirebaseAuth.getInstance();
                 FirebaseAuth.getInstance().signOut();
                 StyleableToast.makeText(getApplicationContext(), "You Successfully Logged out", Toast.LENGTH_SHORT, R.style.OnActivity).show();
@@ -185,7 +199,10 @@ public class Tips extends AppCompatActivity implements NavigationView.OnNavigati
                 Intent intent4 = new Intent(getApplicationContext(), Profile.class);
                 startActivity(intent4);
                 break;
-
+            case R.id.Navigation_bar_item_Insert_Data_Screen:
+                Intent intent8 = new Intent(getApplicationContext(), Insert_Data.class);
+                startActivity(intent8);
+                break;
 
         }
         return true;
