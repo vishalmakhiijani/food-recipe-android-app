@@ -19,6 +19,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true" />
 
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"
@@ -26,9 +28,8 @@
         android:layout_gravity="start"
         android:background="@color/light_blue"
         app:headerLayout="@layout/menu_header"
-        app:menu="@menu/navigation_menu" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
+        app:menu="@menu/main_menu"
+        />
     <LinearLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
