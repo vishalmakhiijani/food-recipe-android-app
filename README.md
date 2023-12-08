@@ -1,16 +1,23 @@
 
 # Tasty Tips
 
+<p align="center"><img src="" heigth="250" width="250"/></p>
+
+
 With the help of the spoonacular api, users of the Tasty Tips android app can access for recipes based on keywords and browse recipe information.
 
 ## Features
 
-- Random Recipes on Homepage
-- Recipe Image
-- users can create, edit update their accounts
-- similar suggested recipes
-- user login with email verification
-- forget password
+- At least 50 Recipes on Homepage
+- Users can create, edit update their accounts
+- Similar suggested recipes when opened a recipe
+- Email verification
+- Easy to Use
+- Search recipes by ingredients or title
+- Filter recipes by type of meal
+- Login to your account from any device
+- Completely free and ad-free
+
 
 
 ## Installation
