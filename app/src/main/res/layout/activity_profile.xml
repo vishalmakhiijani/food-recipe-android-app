@@ -70,17 +70,8 @@
                     android:layout_marginLeft="23dp"
                     android:fontFamily="@font/bungee"
                     android:includeFontPadding="false"
-                    android:text="@string/vishal_makhijani"
+                    android:text=""
                     android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/TextView_UserName_Main"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/TextView_FullName_Main"
-                    android:layout_marginLeft="23dp"
-                    android:text="@string/vishal_makhijani"
-                    android:textSize="14sp" />
             </RelativeLayout>
 
             <LinearLayout
@@ -92,7 +83,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/TextInputLayout_FullName"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="70dp"
                     android:layout_marginBottom="10dp"
                     android:hint="@string/full_name_input">
 
@@ -103,7 +94,7 @@
                         android:background="@color/white"
                         android:drawableLeft="@drawable/user_20"
                         android:drawablePadding="10dp"
-                        android:text="@string/vishal_makhijani"
+                        android:text=""
                         tools:ignore="TouchTargetSizeCheck" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -111,7 +102,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/TextInputLayout_Email"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="70dp"
                     android:layout_marginBottom="10dp"
                     android:hint="@string/email_input">
 
@@ -123,7 +114,7 @@
                         android:drawableLeft="@drawable/email_20"
                         android:drawablePadding="10dp"
                         android:inputType="textEmailAddress"
-                        android:text="@string/dev_email"
+                        android:text=""
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -131,8 +122,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/TextInputLayout_Password"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="30dp"
                     android:hint="@string/password">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -143,51 +134,11 @@
                         android:drawableLeft="@drawable/weight_20"
                         android:drawablePadding="10dp"
                         android:inputType="textPassword"
-                        android:text="******"
+                        android:text=""
                         tools:ignore="TouchTargetSizeCheck" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/TextInputLayout_Gender"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:hint="@string/gender">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/EditInputEditText_Gender"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:drawableLeft="@drawable/gender_20"
-                        android:drawablePadding="10dp"
-                        android:inputType="text"
-                        android:text="Male"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/TextInputLayout_DOB"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Date Of Birth">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/EditInputEditText_DOB"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:drawableLeft="@drawable/dob_20"
-                        android:drawablePadding="10dp"
-                        android:inputType="date"
-                        android:text="10/30/2001"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                </com.google.android.material.textfield.TextInputLayout>
 
 
                 <androidx.cardview.widget.CardView
@@ -205,7 +156,7 @@
                         android:background="#c0392b"
                         android:fontFamily="@font/bungee"
                         android:text="@string/update_profile"
-                        android:textSize="14dp" />
+                        android:textSize="18dp" />
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 

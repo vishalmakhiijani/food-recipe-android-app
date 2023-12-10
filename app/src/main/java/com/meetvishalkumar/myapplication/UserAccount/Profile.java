@@ -100,25 +100,11 @@ public class Profile extends AppCompatActivity
                     RigesterUser UserProfile = snapshot.getValue(RigesterUser.class);
                     if (UserProfile != null) {
 
-                        String FullName = UserProfile._fullname;
-                        String Email = UserProfile._email;
-                        String Password = UserProfile._password;
-                        String Gender = UserProfile._gender;
-                        String Date = UserProfile._date;
-                        int CureentYear = Calendar.getInstance().get(Calendar.YEAR);
-//                    String Age = String.valueOf(UserProfile._birthyear);
-                        int _age = CureentYear - UserProfile._birthyear;
-                        String Age =String.valueOf(_age);
-
-
-                        String Username = UserProfile._username;
+                        String FullName = UserProfile.Fullname;
+                        String Email = UserProfile.Email;
                         TextView_FullName_Main.setText(FullName);
-                        TextView_UserName_Main.setText(Username);
                         EditInputEditText_Fullname.setText(FullName);
                         EditInputEditText_Email.setText(Email);
-                        EditInputEditText_Password.setText(Password);
-                        EditInputEditText_Gender.setText(Gender);
-                        EditInputEditText_DOB.setText(Date);
                         //to hide loading
                         recipeLoading.hide();
                         recipeLoading.cancel();
@@ -144,13 +130,10 @@ public class Profile extends AppCompatActivity
         drawerLayout = findViewById(R.id.drawer_layout);
         contentView = findViewById(R.id.content);
         TextView_FullName_Main = findViewById(R.id.TextView_FullName_Main);
-        TextView_UserName_Main = findViewById(R.id.TextView_UserName_Main);
         EditInputEditText_Fullname = findViewById(R.id.EditInputEditText_Fullname);
         EditInputEditText_Email = findViewById(R.id.EditInputEditText_Email);
         EditInputEditText_Password = findViewById(R.id.EditInputEditText_Password);
         Profile_Update_Button = findViewById(R.id.Profile_Update_Button);
-        EditInputEditText_Gender = findViewById(R.id.EditInputEditText_Gender);
-        EditInputEditText_DOB = findViewById(R.id.EditInputEditText_DOB);
     }
 
     //        Navigation Drawer Setting Start
@@ -173,29 +156,52 @@ public class Profile extends AppCompatActivity
     }
 
 
-    private void animateNavigationDrawer() {
-        //Add any color or remove it to use the default one!
-        //To make it transparent use Color.Transparent in side setScrimColor();
-        drawerLayout.setScrimColor(getResources().getColor(R.color.dark_red));
-        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
+//    private void animateNavigationDrawer() {
+//        //Add any color or remove it to use the default one!
+//        //To make it transparent use Color.Transparent in side setScrimColor();
+//        drawerLayout.setScrimColor(getResources().getColor(R.color.dark_red));
+//        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+//            @Override
+//            public void onDrawerSlide(View drawerView, float slideOffset) {
+//
+//                // Scale the View based on current slide offset
+//                final float diffScaledOffset = slideOffset * (1 - END_SCALE);
+//                final float offsetScale = 1 - diffScaledOffset;
+//                contentView.setScaleX(offsetScale);
+//                contentView.setScaleY(offsetScale);
+//
+//                // Translate the View, accounting for the scaled width
+//                final float xOffset = drawerView.getWidth() * slideOffset;
+//                final float xOffsetDiff = contentView.getWidth() * diffScaledOffset / 2;
+//                final float xTranslation = xOffset - xOffsetDiff;
+//                contentView.setTranslationX(xTranslation);
+//            }
+//        });
+//
+//    }
+private void animateNavigationDrawer() {
+    //Add any color or remove it to use the default one!
+    //To make it transparent use Color.Transparent in side setScrimColor();
+    drawerLayout.setScrimColor(getResources().getColor(R.color.dark_red));
+    drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+        @Override
+        public void onDrawerSlide(View drawerView, float slideOffset) {
 
-                // Scale the View based on current slide offset
-                final float diffScaledOffset = slideOffset * (1 - END_SCALE);
-                final float offsetScale = 1 - diffScaledOffset;
-                contentView.setScaleX(offsetScale);
-                contentView.setScaleY(offsetScale);
+            // Scale the View based on current slide offset
+            final float diffScaledOffset = slideOffset * (1 - END_SCALE);
+            final float offsetScale = 1 - diffScaledOffset;
+            contentView.setScaleX(offsetScale);
+            contentView.setScaleY(offsetScale);
 
-                // Translate the View, accounting for the scaled width
-                final float xOffset = drawerView.getWidth() * slideOffset;
-                final float xOffsetDiff = contentView.getWidth() * diffScaledOffset / 2;
-                final float xTranslation = xOffset - xOffsetDiff;
-                contentView.setTranslationX(xTranslation);
-            }
-        });
+            // Translate the View, accounting for the scaled width
+            final float xOffset = drawerView.getWidth() * slideOffset;
+            final float xOffsetDiff = contentView.getWidth() * diffScaledOffset / 2;
+            final float xTranslation = xOffset - xOffsetDiff;
+            contentView.setTranslationX(xTranslation);
+        }
+    });
 
-    }
+}
 
     @Override
     public void onBackPressed() {
