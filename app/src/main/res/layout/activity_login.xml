@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_signup_backgroud"
+    android:background="@drawable/background_login"
     android:padding="30dp"
     android:transitionName="transition_login"
     tools:context=".UserAccount.Login">
@@ -14,13 +14,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="9dp"
+            >
 
         <ImageView
             android:id="@+id/login_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
+            android:background="@color/white"
             android:src="@drawable/back_30" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,6 +48,7 @@
             android:textSize="40sp" />
 
         <RelativeLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp">
@@ -61,6 +69,7 @@
                 app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/muli"
@@ -126,6 +135,7 @@
             </RelativeLayout>
 
             <Button
+                app:cardCornerRadius="20dp"
                 android:id="@+id/letTheUserLogIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

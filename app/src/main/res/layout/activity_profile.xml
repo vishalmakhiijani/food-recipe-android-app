@@ -29,7 +29,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/dark_red">
+                android:background="@color/navy">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -58,7 +58,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="@color/dark_red"
+                android:background="@color/scooter"
                 android:padding="20dp">
 
 
@@ -131,7 +131,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
-                        android:drawableLeft="@drawable/weight_20"
+                        android:drawableLeft="@drawable/password_20"
                         android:drawablePadding="10dp"
                         android:inputType="textPassword"
                         android:text=""
@@ -145,7 +145,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="40dp"
-                    app:cardBackgroundColor="@color/dark_red"
+                    app:cardBackgroundColor="@color/scooter"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="100dp">
 
@@ -153,10 +153,10 @@
                         android:id="@+id/Profile_Update_Button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#c0392b"
+                        android:background="@color/scooter"
                         android:fontFamily="@font/bungee"
                         android:text="@string/update_profile"
-                        android:textSize="18dp" />
+                        android:textSize="20dp" />
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
