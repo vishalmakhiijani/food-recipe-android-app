@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace 'com.meetvishalkumar.myapplication'
-    compileSdk 32
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.meetvishalkumar.myapplication"
         minSdk 21
-        targetSdk 32
+        targetSdk 34
         versionCode 1
-        versionName "1.0"
+        versionName '1.5'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -21,6 +21,7 @@ android {
         release {
             minifyEnabled true
             shrinkResources true
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -30,6 +31,10 @@ android {
     }
     buildFeatures {
         viewBinding true
+        buildConfig = true
+    }
+    lint {
+        baseline = file("lint-baseline.xml")
     }
 }
 
