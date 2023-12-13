@@ -11,4 +11,10 @@
     <color name="light_blue">#e5ecf7</color>
     <color name="colorAccent">#0000FF</color>
     <color name="colorDefault">#dcdcdc</color>
+<!--    New Color theme link: https://colorhunt.co/palette/ecf4d69ad0c22d9596265073 -->
+    <color name="sage">#ECF4D6</color>
+    <color name="teal">#9AD0C2</color>
+    <color name="scooter">#2D9596</color>
+    <color name="navy">#265073</color>
+    <color name="off_white">#FAF9F6</color>
 </resources>
