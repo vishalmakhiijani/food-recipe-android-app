@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,7 +34,7 @@ public class ForgetPassword extends AppCompatActivity {
     ProgressBar progressBar;
     Button forget_password_next_btn;
     FirebaseAuth firebaseAuth;
-    ImageView forget_password_back_btn;
+    TextView forget_password_back_btn, Button_Create_Account_From_Forget_password;
 
 
     @Override
@@ -50,8 +51,9 @@ public class ForgetPassword extends AppCompatActivity {
         forget_password_Email = findViewById(R.id.forget_password_Email);
         EditInputEditText_Email = findViewById(R.id.EditInputEditText_Email);
         progressBar = findViewById(R.id.progressBar);
-        forget_password_back_btn = findViewById(R.id.forget_password_back_btn);
+        forget_password_back_btn = findViewById(R.id.login_back_button);
         forget_password_next_btn = findViewById(R.id.forget_password_next_btn);
+        Button_Create_Account_From_Forget_password = findViewById(R.id.Button_Create_Account_From_Forget_password);
         firebaseAuth = FirebaseAuth.getInstance();
         forget_password_next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,8 +64,9 @@ public class ForgetPassword extends AppCompatActivity {
                     noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
                     noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
                     noInternetDialoag.show();
+                } else {
+                    resetPassword();
                 }
-                resetPassword();
             }
         });
         forget_password_back_btn.setOnClickListener(new View.OnClickListener() {
@@ -75,8 +78,24 @@ public class ForgetPassword extends AppCompatActivity {
                     noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
                     noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
                     noInternetDialoag.show();
+                }else {
+                    startActivity(new Intent(ForgetPassword.this, Login.class));
                 }
-                startActivity(new Intent(ForgetPassword.this, Login.class));
+            }
+        });
+
+        Button_Create_Account_From_Forget_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!checkInternet()) {
+                    NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
+                    noInternetDialoag.setCancelable(false);
+                    noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                    noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                    noInternetDialoag.show();
+                }else {
+                    startActivity(new Intent(ForgetPassword.this, Signup.class));
+                }
             }
         });
     }
@@ -92,9 +111,9 @@ public class ForgetPassword extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(ForgetPassword.this, "Email with a link has been send to your account", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(ForgetPassword.this, Login.class));
                     progressBar.setVisibility(View.GONE);
                 } else {
-//                    Toast.makeText(ForgetPassword.this, "Something Went Wrong"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     StyleableToast.makeText(ForgetPassword.this, "Something Went Wrong" + task.getException().getMessage(), R.style.errorToast).show();
                 }
             }
