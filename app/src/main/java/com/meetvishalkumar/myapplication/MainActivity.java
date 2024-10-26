@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,7 +24,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -52,15 +52,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .putExtra("id", id));
         }
     };
+
     private FirebaseAnalytics mFirebaseAnalytics;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     RequestManager manager;
     RandomRecipeAdapter randomRecipeAdapter;
     RecyclerView RecyclerView;
-    SwipeRefreshLayout swipeRefreshLayout;
+
 //    Loading
     private RecipeLoading recipeLoading;
+
+    Spinner spinner;
+    List<String> tags = new ArrayList<>();
+
+
     private final RandomRecipesResponseListener RandomRecipesResponseListener = new RandomRecipesResponseListener() {
         @Override
         public void didFetch(RandomRecipeApiResponse response, String message) {
@@ -81,9 +87,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         public void didError(String message) {
             Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT);
         }
+
+
     };
-    Spinner spinner;
-    List<String> tags = new ArrayList<>();
+
     private final AdapterView.OnItemSelectedListener spinnerSelectedListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -126,12 +133,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.drawer_layout);
         contentView = findViewById(R.id.content);
         spinner = findViewById(R.id.spinner_tags);
-        swipeRefreshLayout=findViewById(R.id.swiperefresh);
         //          Calling Loading
         recipeLoading = new RecipeLoading(this);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         navigationView();
-        //        Refresh Activity Code
+
 
 
 
@@ -161,7 +167,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         spinner.setOnItemSelectedListener(spinnerSelectedListener);
 
         manager = new RequestManager(this);
+
     }
+
+
 
     //        Navigation Drawer Setting Start
     private void navigationView() {
@@ -267,40 +276,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
-    /*
-     * Listen for option item selections so that we receive a notification
-     * when the user requests a refresh by selecting the refresh action bar item.
-     */
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//
-//            // Check if user triggered a refresh:
-//            case R.id.menu_refresh:
-//                Log.i(LOG_TAG, "Refresh menu item selected");
-//
-//                // Signal SwipeRefreshLayout to start the progress indicator
-//                mySwipeRefreshLayout.setRefreshing(true);
-//
-//                // Start the refresh background task.
-//                // This method calls setRefreshing(false) when it's finished.
-//                myUpdateOperation();
-//
-//                return true;
-//        }
-//
-//        // User didn't trigger a refresh, let the superclass handle this action
-//        return super.onOptionsItemSelected(item);
-//    }
-    /*
-     * Sets up a SwipeRefreshLayout.OnRefreshListener that is invoked when the user
-     * performs a swipe-to-refresh gesture.
-     */
-    /*
-     * Listen for option item selections so that we receive a notification
-     * when the user requests a refresh by selecting the refresh action bar item.
-     */
-
 
 
 }
