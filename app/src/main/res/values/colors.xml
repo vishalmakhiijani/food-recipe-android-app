@@ -12,9 +12,11 @@
     <color name="colorAccent">#0000FF</color>
     <color name="colorDefault">#dcdcdc</color>
 <!--    New Color theme link: https://colorhunt.co/palette/ecf4d69ad0c22d9596265073 -->
+    <!--    New Color theme link: https://coolors.co/palette/edede9-d6ccc2-f5ebe0-e3d5ca-d5bdaf -->
     <color name="sage">#ECF4D6</color>
     <color name="teal">#9AD0C2</color>
     <color name="scooter">#2D9596</color>
     <color name="navy">#265073</color>
     <color name="off_white">#FAF9F6</color>
+    <color name="light_gray">#edede9</color>
 </resources>

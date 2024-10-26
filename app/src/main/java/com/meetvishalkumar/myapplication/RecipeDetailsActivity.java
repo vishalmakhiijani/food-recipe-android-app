@@ -221,7 +221,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
     private void animateNavigationDrawer() {
         //Add any color or remove it to use the default one!
         //To make it transparent use Color.Transparent in side setScrimColor();
-        drawerLayout.setScrimColor(getResources().getColor(R.color.dark_red));
+        drawerLayout.setScrimColor(getResources().getColor(R.color.light_gray));
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
