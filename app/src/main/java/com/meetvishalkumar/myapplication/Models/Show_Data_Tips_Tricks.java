@@ -3,14 +3,14 @@ package com.meetvishalkumar.myapplication.Models;
 public class Show_Data_Tips_Tricks {
     private String name;
     private String content;
-    private String FullName;
+    private String fullName;
 
     public Show_Data_Tips_Tricks(String name, String content
-//            ,String FullName
+            ,String fullName
     ) {
         this.name = name;
         this.content = content;
-//        this.FullName=FullName;
+        this.fullName=fullName;
 
     }
 
@@ -30,12 +30,12 @@ public class Show_Data_Tips_Tricks {
         this.content = content;
     }
 
-    public String getFullName() {
-        return FullName;
+    public String getfullName() {
+        return fullName;
     }
 
-    public void setFullName(String FullName) {
-        this.FullName = FullName;
+    public void setfullName(String fullName) {
+        this.fullName = fullName;
     }
 }
 

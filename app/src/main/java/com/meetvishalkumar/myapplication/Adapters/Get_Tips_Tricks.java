@@ -36,7 +36,7 @@ public class Get_Tips_Tricks extends RecyclerView.Adapter<Get_Tips_Tricks.Tips_V
         Show_Data_Tips_Tricks show_data_tips_tricks = list.get(position);
         holder.Tips_And_Tricks_TextView_Title.setText(show_data_tips_tricks.getName() + ":");
         holder.Tips_And_Tricks_TextView_Desp.setText(show_data_tips_tricks.getContent());
-//        holder.Tips_And_Tricks_TextView_Name.setText(Show_Data_Tips_Tricks.get);
+        holder.Tips_And_Tricks_TextView_Name.setText("Contributed By: "+show_data_tips_tricks.getfullName());
     }
 
     @Override
@@ -45,13 +45,14 @@ public class Get_Tips_Tricks extends RecyclerView.Adapter<Get_Tips_Tricks.Tips_V
     }
 
     static class Tips_ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView Tips_And_Tricks_TextView_Title, Tips_And_Tricks_TextView_Desp,Tips_And_Tricks_TextView_Name;
+        private final TextView Tips_And_Tricks_TextView_Title, Tips_And_Tricks_TextView_Desp, Tips_And_Tricks_TextView_Name;
 
         public Tips_ViewHolder(@NonNull View itemView) {
             super(itemView);
             Tips_And_Tricks_TextView_Desp = itemView.findViewById(R.id.Tips_And_Tricks_TextView_Desp);
             Tips_And_Tricks_TextView_Title = itemView.findViewById(R.id.Tips_And_Tricks_TextView_Title);
             Tips_And_Tricks_TextView_Name = itemView.findViewById(R.id.Tips_And_Tricks_TextView_Name);
+//            Tips_And_Tricks_TextView_Name = itemView.findViewById(R.id.Tips_And_Tricks_TextView_Name);
         }
     }
 }

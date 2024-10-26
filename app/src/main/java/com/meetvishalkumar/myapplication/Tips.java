@@ -91,11 +91,12 @@ public class Tips extends AppCompatActivity implements NavigationView.OnNavigati
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
                 for (DataSnapshot tip : snapshot.child("Tips And Tricks").getChildren()) {
-                    if (tip.hasChild("name") && tip.hasChild("content")) {
+                    if (tip.hasChild("name") && tip.hasChild("content") && tip.hasChild("fullName")) {
 
                         final String getName = tip.child("name").getValue(String.class);
                         final String getContent = tip.child("content").getValue(String.class);
-                        Show_Data_Tips_Tricks show_data_tips_tricks = new Show_Data_Tips_Tricks(getName, getContent);
+                        final String getfullName = tip.child("fullName").getValue(String.class);
+                        Show_Data_Tips_Tricks show_data_tips_tricks = new Show_Data_Tips_Tricks(getName, getContent, getfullName);
                         list.add(show_data_tips_tricks);
                         //to hide loading
                         recipeLoading.hide();

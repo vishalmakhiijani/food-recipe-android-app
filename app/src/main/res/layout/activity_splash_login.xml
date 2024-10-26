@@ -16,8 +16,8 @@
             android:id="@+id/ImageView_Back_Button"
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:padding="5dp"
-            android:src="@drawable/applogo_white_no_bg" />
+            android:padding="5dp"/>
+<!--            android:src="@drawable/applogo_white_no_bg" />-->
 
         <TextView
             android:layout_width="match_parent"

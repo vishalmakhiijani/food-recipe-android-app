@@ -77,55 +77,55 @@ public class Insert_Data extends AppCompatActivity implements NavigationView.OnN
         Button_Inert_Data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                InsertTipsAndTricksData();
+                InsertTipsAndTricksData();
             }
         });
 
     }
 
-//    private void InsertTipsAndTricksData() {
-//        reference_User.child(UserID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                RigesterUser UserProfile = snapshot.getValue(RigesterUser.class);
-//                if (UserProfile != null) {
-//                    String FullName = UserProfile._fullname;
-//                    String name = Edit_Text_Insert_data_Name.getText().toString();
-//                    String content = Edit_Text_Insert_data_Desp.getText().toString();
-//                    Insert_Data_Tips_Tricks insert_data_tips_tricks = new Insert_Data_Tips_Tricks(name, content, FullName);
-//                    reference.push().setValue(insert_data_tips_tricks).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<Void> task) {
-//                            Toast.makeText(Insert_Data.this, "Data Inserted Successfully", Toast.LENGTH_SHORT).show();
-//                            Edit_Text_Insert_data_Name.setText("");
-//                            Edit_Text_Insert_data_Desp.setText("");
-//                        }
-//                    }).addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            Toast.makeText(Insert_Data.this, "something went wrong", Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(getApplicationContext(), "Something Went Wrong", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        reference = FirebaseDatabase.getInstance().getReference().child("Tips And Tricks");
-//        Button_Inert_Data.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                InsertTipsAndTricksData();
-//            }
-//        });
-//
-//
-//
-//    }
+    private void InsertTipsAndTricksData() {
+        reference_User.child(UserID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                RigesterUser UserProfile = snapshot.getValue(RigesterUser.class);
+                if (UserProfile != null) {
+                    String FullName = UserProfile.Fullname;
+                    String name = Edit_Text_Insert_data_Name.getText().toString();
+                    String content = Edit_Text_Insert_data_Desp.getText().toString();
+                    Insert_Data_Tips_Tricks insert_data_tips_tricks = new Insert_Data_Tips_Tricks(name, content, FullName);
+                    reference.push().setValue(insert_data_tips_tricks).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(Insert_Data.this, "Data Inserted Successfully", Toast.LENGTH_SHORT).show();
+                            Edit_Text_Insert_data_Name.setText("");
+                            Edit_Text_Insert_data_Desp.setText("");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Insert_Data.this, "something went wrong", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getApplicationContext(), "Something Went Wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+        reference = FirebaseDatabase.getInstance().getReference().child("Tips And Tricks");
+        Button_Inert_Data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InsertTipsAndTricksData();
+            }
+        });
+
+
+
+    }
 
 
     private void navigationView() {
@@ -141,34 +141,34 @@ public class Insert_Data extends AppCompatActivity implements NavigationView.OnN
                 } else drawerLayout.openDrawer(GravityCompat.START);
             }
         });
-        animateNavigationDrawer();
+//        animateNavigationDrawer();
 
 
     }
 
-    private void animateNavigationDrawer() {
-        //Add any color or remove it to use the default one!
-        //To make it transparent use Color.Transparent in side setScrimColor();
-        drawerLayout.setScrimColor(getResources().getColor(R.color.dark_red));
-        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
-
-                // Scale the View based on current slide offset
-                final float diffScaledOffset = slideOffset * (1 - END_SCALE);
-                final float offsetScale = 1 - diffScaledOffset;
-                contentView.setScaleX(offsetScale);
-                contentView.setScaleY(offsetScale);
-
-                // Translate the View, accounting for the scaled width
-                final float xOffset = drawerView.getWidth() * slideOffset;
-                final float xOffsetDiff = contentView.getWidth() * diffScaledOffset / 2;
-                final float xTranslation = xOffset - xOffsetDiff;
-                contentView.setTranslationX(xTranslation);
-            }
-        });
-
-    }
+//    private void animateNavigationDrawer() {
+//        //Add any color or remove it to use the default one!
+//        //To make it transparent use Color.Transparent in side setScrimColor();
+//        drawerLayout.setScrimColor(getResources().getColor(R.color.dark_red));
+//        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+//            @Override
+//            public void onDrawerSlide(View drawerView, float slideOffset) {
+//
+//                // Scale the View based on current slide offset
+//                final float diffScaledOffset = slideOffset * (1 - END_SCALE);
+//                final float offsetScale = 1 - diffScaledOffset;
+//                contentView.setScaleX(offsetScale);
+//                contentView.setScaleY(offsetScale);
+//
+//                // Translate the View, accounting for the scaled width
+//                final float xOffset = drawerView.getWidth() * slideOffset;
+//                final float xOffsetDiff = contentView.getWidth() * diffScaledOffset / 2;
+//                final float xTranslation = xOffset - xOffsetDiff;
+//                contentView.setTranslationX(xTranslation);
+//            }
+//        });
+//
+//    }
 
     @Override
     public void onBackPressed() {
