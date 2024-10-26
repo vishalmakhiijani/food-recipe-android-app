@@ -47,7 +47,7 @@
             <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/navy"
+            android:background="#edede9"
                 app:layout_collapseMode="pin">
 
             <RelativeLayout
@@ -126,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbarStyle="insideOverlay"
-                android:background="@color/teal"
+                android:background="#edede9"
                 app:iconifiedByDefault="false"
                 app:queryHint="Search Recipe"
                 />
