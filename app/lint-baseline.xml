@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.7.1" type="baseline" client="gradle" dependencies="false" name="AGP (8.7.1)" variant="fatal" version="8.7.1">
+
+    <issue
+        id="Instantiatable"
+        message="This class should provide a default constructor (a public constructor with no arguments) (`com.meetvishalkumar.myapplication.Loading_Animation.RecipeLoading`)"
+        errorLine1="            android:name=&quot;.Loading_Animation.RecipeLoading&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="19"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`RecipeLoading` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.Loading_Animation.RecipeLoading&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="19"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="This class should provide a default constructor (a public constructor with no arguments) (`com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload`)"
+        errorLine1="            android:name=&quot;.Loading_Animation.NoInternetDiaload&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="28"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`NoInternetDiaload` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.Loading_Animation.NoInternetDiaload&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="28"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="        holder.recyclear_instructions_steps.setHasFixedSize(true);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/Adapters/InstructionsAdapter.java"
+            line="36"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="        holder.recycler_View_instructions_Ingredients.setHasFixedSize(true);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/Adapters/InstructionsStepAdapter.java"
+            line="39"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="        holder.recycler_View_instructions_Ingredients.setHasFixedSize(true);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/Adapters/InstructionsStepAdapter.java"
+            line="39"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="        holder.recycler_View_instructions_Equipment.setHasFixedSize(true);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/Adapters/InstructionsStepAdapter.java"
+            line="44"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="        holder.recycler_View_instructions_Equipment.setHasFixedSize(true);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/Adapters/InstructionsStepAdapter.java"
+            line="44"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="            recycler_meal_ingrediets.setHasFixedSize(true);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/RecipeDetailsActivity.java"
+            line="93"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="            recycler_meal_ingrediets.setHasFixedSize(true);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/RecipeDetailsActivity.java"
+            line="93"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="            recycler_meal_ingrediets.setHasFixedSize(true);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/RecipeDetailsActivity.java"
+            line="93"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="            Recycler_meal_similar.setHasFixedSize(true);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/RecipeDetailsActivity.java"
+            line="114"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="            Recycler_meal_similar.setHasFixedSize(true);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/RecipeDetailsActivity.java"
+            line="114"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="            Recycler_meal_similar.setHasFixedSize(true);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/RecipeDetailsActivity.java"
+            line="114"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="            Recycler_meal_instructions.setHasFixedSize(true);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/RecipeDetailsActivity.java"
+            line="130"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="            Recycler_meal_instructions.setHasFixedSize(true);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/RecipeDetailsActivity.java"
+            line="130"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="InvalidSetHasFixedSize"
+        message="When using `setHasFixedSize() in an `RecyclerView`, `wrap_content` cannot be used as a value for `size` in the scrolling direction."
+        errorLine1="            Recycler_meal_instructions.setHasFixedSize(true);"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/meetvishalkumar/myapplication/RecipeDetailsActivity.java"
+            line="130"
+            column="13"/>
+    </issue>
+
+</issues>

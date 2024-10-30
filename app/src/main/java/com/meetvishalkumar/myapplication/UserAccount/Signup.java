@@ -179,7 +179,7 @@ public class Signup extends AppCompatActivity {
                         else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(Signup.this, "createUserWithEmail:failure" + task.getException(),Toast.LENGTH_SHORT).show();
-                            signup_login_button.setText(task.getException()+""+Email);
+                            signup_login_button.setText(task.getException()+" "+Email);
                             Toast.makeText(Signup.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
-    android:background="@color/white"
+    android:background="#f2f2f2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -97,7 +97,7 @@
             android:gravity="left"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="230dp"
-            android:text="Which Food Would You Like To Cook?"
+            android:text="@string/which_food_would_you_like_to_cook"
             android:textSize="15sp"
             android:textColor="@color/black" />
 

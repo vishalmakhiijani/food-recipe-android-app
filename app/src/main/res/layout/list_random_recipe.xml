@@ -4,7 +4,7 @@
     android:id="@+id/Random_list_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_margin="4dp"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp">
@@ -28,7 +28,7 @@
             android:padding="8dp"
             android:scrollHorizontally="true"
             android:singleLine="true"
-            android:text="Dish Name"
+            android:text="@string/dish_name"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -43,8 +43,8 @@
             android:paddingStart="8dp"
             android:scrollHorizontally="true"
             android:singleLine="true"
-            android:text="Dish Tags"
-            android:textColor="#2ce920"
+            android:text="@string/dish_tags"
+            android:textColor="@color/black"
             android:textSize="12sp" />
         <TextView
             android:id="@+id/textView_tags_includes"

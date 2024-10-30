@@ -52,5 +52,12 @@
     <string name="enter_email">Enter Email</string>
     <string name="create_an_account">Create An Account</string>
     <string name="forget_npassword">Forget\nPassword?</string>
+    <string name="which_food_would_you_like_to_cook">Which Food Would You Like To Cook?</string>
+    <string name="dish_tags">Dish Tags</string>
+    <string name="dish_name">Dish Name</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="number_of_minutes">Number Of Minutes</string>
+    <string name="total_meal_servings">Total Meal Servings</string>
+    <string name="total_number_of_ingredients">Total Number Of Ingredients</string>
     <!-- Strings used for fragments for navigation -->
 </resources>

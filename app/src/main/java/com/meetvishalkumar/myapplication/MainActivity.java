@@ -43,7 +43,7 @@ import java.util.List;
 import io.github.muddz.styleabletoast.StyleableToast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    //
+
     static final float END_SCALE = 0.7f;
     private final RecipeClickListener recipeClickListener = new RecipeClickListener() {
         @Override
@@ -138,9 +138,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         navigationView();
 
-
-
-
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -157,7 +154,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return false;
             }
         });
-
 
         ArrayAdapter arrayAdapter = ArrayAdapter.createFromResource(
                 this, R.array.tags, R.layout.spinner_txt

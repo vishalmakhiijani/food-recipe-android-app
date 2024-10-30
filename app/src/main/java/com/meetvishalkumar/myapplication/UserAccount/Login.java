@@ -127,7 +127,6 @@ public class Login extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    Toast.makeText(Login.this,"",Toast.LENGTH_SHORT).show();
                     if (user.isEmailVerified()) {
                         startActivity(new Intent(Login.this, Profile.class));
                     } else {

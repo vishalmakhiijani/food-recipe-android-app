@@ -60,7 +60,7 @@ public class Insert_Data extends AppCompatActivity implements NavigationView.OnN
         Button_Inert_Data = findViewById(R.id.Button_Inert_Data);
         menu_opener_image = findViewById(R.id.menu_opener_image);
         navigationView = findViewById(R.id.navigation_view);
-        navigationView();
+//        navigationView();
 
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
@@ -128,23 +128,23 @@ public class Insert_Data extends AppCompatActivity implements NavigationView.OnN
     }
 
 
-    private void navigationView() {
-
-        navigationView.bringToFront();
-        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.Navigation_bar_item_Home);
-        menu_opener_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
-//        animateNavigationDrawer();
-
-
-    }
+//    private void navigationView() {
+//
+//        navigationView.bringToFront();
+//        navigationView.setNavigationItemSelectedListener(this);
+//        navigationView.setCheckedItem(R.id.Navigation_bar_item_Home);
+//        menu_opener_image.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
+//                    drawerLayout.closeDrawer(GravityCompat.START);
+//                } else drawerLayout.openDrawer(GravityCompat.START);
+//            }
+//        });
+////        animateNavigationDrawer();
+//
+//
+//    }
 
 //    private void animateNavigationDrawer() {
 //        //Add any color or remove it to use the default one!
