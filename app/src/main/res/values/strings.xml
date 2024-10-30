@@ -59,5 +59,6 @@
     <string name="number_of_minutes">Number Of Minutes</string>
     <string name="total_meal_servings">Total Meal Servings</string>
     <string name="total_number_of_ingredients">Total Number Of Ingredients</string>
+    <string name="similar_recipes">Similar Recipes</string>
     <!-- Strings used for fragments for navigation -->
 </resources>
