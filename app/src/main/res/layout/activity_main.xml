@@ -71,11 +71,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30px"
-                android:layout_marginRight="10px"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="13dp"
                 android:fontFamily="@font/antic"
-                android:gravity="left"
-                android:text="Hello"
+                android:gravity="start"
+                android:text="@string/hello"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -85,7 +85,7 @@
                     android:fontFamily="@font/antic"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:text="Foodie!"
+                    android:text="@string/foodie"
                     android:textSize="25sp"
                     android:textColor="#2D9596" />
             </LinearLayout>
@@ -94,9 +94,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/antic"
             android:textStyle="bold"
-            android:gravity="left"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="230dp"
+            android:gravity="start"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="230dp"
             android:text="@string/which_food_would_you_like_to_cook"
             android:textSize="15sp"
             android:textColor="@color/black" />

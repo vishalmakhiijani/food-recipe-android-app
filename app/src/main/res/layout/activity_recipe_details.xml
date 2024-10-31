@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".RecipeDetailsActivity">
+    tools:context=".RecipeDetailsActivity"
+    android:background="#F2F2F2">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-
         android:background="@color/light_blue"
         app:headerLayout="@layout/menu_header"
         app:menu="@menu/main_menu" />
@@ -30,6 +30,7 @@
             android:background="@color/light_gray">
 
             <RelativeLayout
+                android:background="#F2F2F2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical">
@@ -41,15 +42,15 @@
                     android:src="@drawable/menu_50" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="70dp"
                     android:fontFamily="@font/comfortaa"
                     android:text="@string/recipe_details"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold"></TextView>
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:textStyle="bold"/>
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
 
@@ -63,66 +64,63 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-
-
-                <TextView
-                    android:id="@+id/textView_Meal_Source"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="8dp"
-                    android:text="Source"
-                    android:textSize="0sp"
-                    android:textStyle="italic" />
-
-
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/ImageView_meal_image"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:scaleType="centerCrop" />
-                <TextView
-                    android:id="@+id/TextView_Meal_Name"
+                    android:layout_height="300dp"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/rounded_corners"/>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/comfortaa"
                     android:gravity="center"
-                    android:padding="8dp"
-                    android:text="Recipe Name"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="-80dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/text_corner">
+
+                    <TextView
+                        android:id="@+id/TextView_Meal_Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/comfortaa"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="@string/recipe_name"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
 
-                <TextView
-                    android:id="@+id/textView_meal_servings"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:drawableStart="@drawable/people_50"
-                    android:drawablePadding="8dp"
-                    android:padding="8dp"
-                    android:text="2 Persons"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="16dp">
 
-                <TextView
-                    android:id="@+id/textView_meal_ready"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:drawableStart="@drawable/timer_50"
-                    android:drawablePadding="8dp"
-                    android:padding="8dp"
-                    android:text="20 Minutes"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/textView_meal_servings"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/total_meal_servings"
+                            app:drawableStartCompat="@drawable/calories" />
 
+                        <TextView
+                            android:id="@+id/textView_meal_ready"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/number_of_minutes"
+                            android:drawablePadding="5dp"
+                            app:drawableStartCompat="@drawable/baseline_access_time_35" />
 
-
-
+                    </LinearLayout>
+                </LinearLayout>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -136,7 +134,6 @@
                         android:layout_height="wrap_content"
                         android:animateLayoutChanges="true"
                         android:orientation="vertical">
-
 
                         <TextView
                             android:id="@+id/textview_meal_Summary_Expand"
@@ -168,9 +165,7 @@
                     android:id="@+id/Recycler_meal_instructions2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp">
-
-                </androidx.recyclerview.widget.RecyclerView>
+                    android:layout_margin="8dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -187,9 +182,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp" />
-
-
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -212,7 +204,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="8sp"
-                    android:text="Similar Recipes"
+                    android:text="@string/similar_recipes"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />

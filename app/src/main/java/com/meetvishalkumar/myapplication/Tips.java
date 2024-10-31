@@ -178,10 +178,6 @@ public class Tips extends AppCompatActivity implements NavigationView.OnNavigati
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.Navigation_bar_item_Meal:
-                Intent intent1 = new Intent(getApplicationContext(), meal_planner.class);
-                startActivity(intent1);
-                break;
             case R.id.Navigation_bar_item_Tips:
                 StyleableToast.makeText(getApplicationContext(), "You Are Already On this Activity", Toast.LENGTH_SHORT, R.style.OnActivity).show();
                 break;

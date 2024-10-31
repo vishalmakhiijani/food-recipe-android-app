@@ -1,58 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Main Setting">
+    <item android:title="@string/main_setting">
         <menu>
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/Navigation_bar_item_Home"
                     android:icon="@drawable/home_50"
-                    android:title="Home" />
-                <item
-                    android:id="@+id/Navigation_bar_item_Meal"
-                    android:icon="@drawable/home_50"
-                    android:title="Meal Planner" />
+                    android:title="@string/home" />
                 <item
                     android:id="@+id/Navigation_bar_item_Tips"
                     android:icon="@drawable/home_50"
-                    android:title="Tips And Tricks" />
+                    android:title="@string/tips_and_tricks" />
                 <item
                     android:id="@+id/Navigation_bar_item_Insert_Data_Screen"
                     android:icon="@drawable/home_50"
-                    android:title="Add Your Tips and Tricks" />
+                    android:title="@string/add_your_tips_and_tricks" />
             </group>
         </menu>
 
     </item>
-    <item android:title="Account Setting">
+    <item android:title="@string/account_setting">
         <menu>
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/Navigation_bar_item_Profile"
                     android:icon="@drawable/home_50"
-                    android:title="Profile" />
+                    android:title="@string/profile" />
                 <item
                     android:id="@+id/Navigation_bar_item_login"
                     android:icon="@drawable/home_50"
-                    android:title=" Sign in / Sign up " />
+                    android:title="@string/sign_in_sign_up" />
                 <item
                     android:id="@+id/Navigation_bar_item_logout"
                     android:icon="@drawable/home_50"
-                    android:title="Logout" />
+                    android:title="@string/logout" />
             </group>
         </menu>
 
     </item>
-    <item android:title="Share">
+    <item android:title="@string/share">
         <menu>
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/Navigation_bar_item_Share"
                     android:icon="@drawable/home_50"
-                    android:title="Share Our Application" />
+                    android:title="@string/share_our_application" />
                 <item
                     android:id="@+id/Navigation_bar_item_Rate"
                     android:icon="@drawable/home_50"
-                    android:title="Rate Our Application" />
+                    android:title="@string/rate_our_application" />
             </group>
         </menu>
 

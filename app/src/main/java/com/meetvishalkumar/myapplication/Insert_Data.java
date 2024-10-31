@@ -26,11 +26,15 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.meetvishalkumar.myapplication.UserAccount.Profile;
 import com.meetvishalkumar.myapplication.UserAccount.RigesterUser;
 import com.meetvishalkumar.myapplication.UserAccount.Splash_Login;
 import com.meetvishalkumar.myapplication.Models.Insert_Data_Tips_Tricks;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 
@@ -92,6 +96,11 @@ public class Insert_Data extends AppCompatActivity implements NavigationView.OnN
                     String FullName = UserProfile.Fullname;
                     String name = Edit_Text_Insert_data_Name.getText().toString();
                     String content = Edit_Text_Insert_data_Desp.getText().toString();
+//                    // Add timeStamp
+                    Map map = new HashMap();
+                    map.put("timestamp", ServerValue.TIMESTAMP);
+                    reference_User.child(UserID).updateChildren(map);
+
                     Insert_Data_Tips_Tricks insert_data_tips_tricks = new Insert_Data_Tips_Tricks(name, content, FullName);
                     reference.push().setValue(insert_data_tips_tricks).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -184,10 +193,6 @@ public class Insert_Data extends AppCompatActivity implements NavigationView.OnN
         switch (item.getItemId()) {
             case R.id.Navigation_bar_item_Home:
                 StyleableToast.makeText(getApplicationContext(), "You Are Already On this Activity", Toast.LENGTH_SHORT, R.style.OnActivity).show();
-                break;
-            case R.id.Navigation_bar_item_Meal:
-                Intent intent = new Intent(getApplicationContext(), meal_planner.class);
-                startActivity(intent);
                 break;
             case R.id.Navigation_bar_item_Tips:
                 Intent intent1 = new Intent(getApplicationContext(), Tips.class);

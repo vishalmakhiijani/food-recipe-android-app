@@ -27,6 +27,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
@@ -47,6 +51,9 @@ import com.meetvishalkumar.myapplication.Models.RecipeDetailsResponse;
 import com.meetvishalkumar.myapplication.Models.SimilarRecipeResponse;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.List;
 
 public class RecipeDetailsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -66,7 +73,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
     };
     int id;
     private FirebaseAnalytics mFirebaseAnalytics;
-    TextView TextView_Meal_Name, textView_Meal_Source, textview_meal_Summary, textview_meal_Summary_Expand, textView_meal_servings, textView_meal_ready, textView_meal_price, ready_in, servings, healthy, instructions;
+    TextView TextView_Meal_Name, TextView_Num_Of_Ingredients, textview_meal_Summary, textview_meal_Summary_Expand, textView_meal_servings, textView_meal_ready, textView_meal_price, ready_in, servings, healthy, instructions;
     ImageView ImageView_meal_image, vegeterian;
     RecyclerView recycler_meal_ingrediets, Recycler_meal_similar, Recycler_meal_instructions;
     RequestManager manager;
@@ -87,7 +94,6 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
 //            textView_meal_price.setText(response.pricePerServing + "$ Per Serving");
             textView_meal_servings.setText(response.servings + " Persons");
             TextView_Meal_Name.setText(response.title);
-            textView_Meal_Source.setText(response.sourceName);
             textview_meal_Summary.setText(Html.fromHtml(response.summary));
             Picasso.get().load(response.image).into(ImageView_meal_image);
             recycler_meal_ingrediets.setHasFixedSize(true);
@@ -165,11 +171,8 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         manager.getRecipeDetials(recipeDetailsListener, id);
         manager.getSimilarRecipes(similarRecipesListener, id);
         manager.getInstructions(instructionsListener, id);
-
-//        TO SHow loading
+        //        TO Show loading
         recipeLoading.show();
-
-
     }
 
 
@@ -177,7 +180,6 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         textView_meal_ready = findViewById(R.id.textView_meal_ready);
         textView_meal_servings = findViewById(R.id.textView_meal_servings);
         TextView_Meal_Name = findViewById(R.id.TextView_Meal_Name);
-        textView_Meal_Source = findViewById(R.id.textView_Meal_Source);
         textview_meal_Summary = findViewById(R.id.textview_meal_Summary);
         ImageView_meal_image = findViewById(R.id.ImageView_meal_image);
         recycler_meal_ingrediets = findViewById(R.id.recycler_meal_ingrediets);
@@ -189,7 +191,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         navigationView = findViewById(R.id.navigation_view);
         drawerLayout = findViewById(R.id.drawer_layout);
         contentView = findViewById(R.id.content);
-//          Calling Loading
+        //          Calling Loading
         recipeLoading = new RecipeLoading(this);
     }
 
@@ -217,6 +219,9 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
 
 
     }
+
+
+
 
     private void animateNavigationDrawer() {
         //Add any color or remove it to use the default one!
@@ -257,10 +262,6 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
             case R.id.Navigation_bar_item_Home:
                 Intent intent11 = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent11);
-                break;
-            case R.id.Navigation_bar_item_Meal:
-                Intent intent = new Intent(getApplicationContext(), meal_planner.class);
-                startActivity(intent);
                 break;
             case R.id.Navigation_bar_item_Tips:
                 Intent intent1 = new Intent(getApplicationContext(), Tips.class);

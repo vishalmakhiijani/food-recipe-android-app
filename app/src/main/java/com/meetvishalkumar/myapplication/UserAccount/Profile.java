@@ -36,9 +36,6 @@ import com.meetvishalkumar.myapplication.Loading_Animation.RecipeLoading;
 import com.meetvishalkumar.myapplication.MainActivity;
 import com.meetvishalkumar.myapplication.R;
 import com.meetvishalkumar.myapplication.Tips;
-import com.meetvishalkumar.myapplication.meal_planner;
-
-import java.util.Calendar;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 
@@ -218,10 +215,6 @@ private void animateNavigationDrawer() {
             case R.id.Navigation_bar_item_Home:
                 Intent intent11 = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent11);
-                break;
-            case R.id.Navigation_bar_item_Meal:
-                Intent intent = new Intent(getApplicationContext(), meal_planner.class);
-                startActivity(intent);
                 break;
             case R.id.Navigation_bar_item_Tips:
                 Intent intent1 = new Intent(getApplicationContext(), Tips.class);

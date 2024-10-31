@@ -55,12 +55,8 @@ public class Splash_Login extends AppCompatActivity {
         Pair[] pairs = new Pair[1];
         pairs[0] = new Pair<View, String>(findViewById(R.id.Login_Button), "transition_login");
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Splash_Login.this, pairs);
-            startActivity(intent, options.toBundle());
-        } else {
-            startActivity(intent);
-        }
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Splash_Login.this, pairs);
+        startActivity(intent, options.toBundle());
     }
 
     public void send_user_signup(View view) {
@@ -69,12 +65,8 @@ public class Splash_Login extends AppCompatActivity {
         Pair[] pairs = new Pair[1];
         pairs[0] = new Pair<View, String>(findViewById(R.id.Signup_Button), "transition_login");
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Splash_Login.this, pairs);
-            startActivity(intent, options.toBundle());
-        } else {
-            startActivity(intent);
-        }
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Splash_Login.this, pairs);
+        startActivity(intent, options.toBundle());
     }
 
     public void play_audio_meme(View view) {

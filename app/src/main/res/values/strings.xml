@@ -60,5 +60,18 @@
     <string name="total_meal_servings">Total Meal Servings</string>
     <string name="total_number_of_ingredients">Total Number Of Ingredients</string>
     <string name="similar_recipes">Similar Recipes</string>
+    <string name="home">Home</string>
+    <string name="tips_and_tricks">Tips And Tricks</string>
+    <string name="main_setting">Main Setting</string>
+    <string name="add_your_tips_and_tricks">Add Your Tips and Tricks</string>
+    <string name="account_setting">Account Setting</string>
+    <string name="profile">Profile</string>
+    <string name="sign_in_sign_up">Sign in / Sign up</string>
+    <string name="logout">Logout</string>
+    <string name="share">Share</string>
+    <string name="share_our_application">Share Our Application</string>
+    <string name="rate_our_application">Rate Our Application</string>
+    <string name="hello">Hello</string>
+    <string name="foodie">Foodie!</string>
     <!-- Strings used for fragments for navigation -->
 </resources>

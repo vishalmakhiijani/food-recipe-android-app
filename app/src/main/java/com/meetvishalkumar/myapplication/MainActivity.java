@@ -226,10 +226,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.Navigation_bar_item_Home:
                 StyleableToast.makeText(getApplicationContext(), "You Are Already On this Activity", Toast.LENGTH_SHORT, R.style.OnActivity).show();
                 break;
-            case R.id.Navigation_bar_item_Meal:
-                Intent intent = new Intent(getApplicationContext(), meal_planner.class);
-                startActivity(intent);
-                break;
             case R.id.Navigation_bar_item_Tips:
                 Intent intent1 = new Intent(getApplicationContext(), Tips.class);
                 startActivity(intent1);
