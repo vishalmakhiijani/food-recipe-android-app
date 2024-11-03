@@ -27,16 +27,7 @@ The spectacular API allows Tasty Tips Android app users to access recipes based 
 ```
 https://github.com/vishalmakhiijani/food-recipe-android-app.git
 ```
-2. Create Your Account with Spoonacular To Get API
-```
-https://spoonacular.com/food-api/console#Dashboard
-```
-3. Copy your API key
-```
-https://spoonacular.com/food-api/console#Profile
-```
-4. Put your API key in the Strings file
-5. Run your Project
+2. Run your Project
 
     
 ### Built With
