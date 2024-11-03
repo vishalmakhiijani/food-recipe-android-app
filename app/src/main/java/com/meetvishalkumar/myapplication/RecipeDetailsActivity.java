@@ -27,10 +27,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
@@ -51,9 +47,6 @@ import com.meetvishalkumar.myapplication.Models.RecipeDetailsResponse;
 import com.meetvishalkumar.myapplication.Models.SimilarRecipeResponse;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.util.List;
 
 public class RecipeDetailsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -73,9 +66,9 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
     };
     int id;
     private FirebaseAnalytics mFirebaseAnalytics;
-    TextView TextView_Meal_Name, TextView_Num_Of_Ingredients, textview_meal_Summary, textview_meal_Summary_Expand, textView_meal_servings, textView_meal_ready, textView_meal_price, ready_in, servings, healthy, instructions;
+    TextView TextView_Meal_Name, textview_meal_Summary, textview_meal_Summary_Expand, textView_meal_servings, textView_meal_ready, textView_meal_price, ready_in, servings, healthy, instructions;
     ImageView ImageView_meal_image, vegeterian;
-    RecyclerView recycler_meal_ingrediets, Recycler_meal_similar, Recycler_meal_instructions;
+    RecyclerView recycler_meal_ingredients, Recycler_meal_similar, Recycler_meal_instructions;
     RequestManager manager;
     IngredientsAdapter ingredientsAdapter;
     private RecipeLoading recipeLoading;
@@ -91,15 +84,14 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
                 noInternetDialoag.show();
             }
             textView_meal_ready.setText(response.readyInMinutes + " Minutes");
-//            textView_meal_price.setText(response.pricePerServing + "$ Per Serving");
             textView_meal_servings.setText(response.servings + " Persons");
             TextView_Meal_Name.setText(response.title);
             textview_meal_Summary.setText(Html.fromHtml(response.summary));
             Picasso.get().load(response.image).into(ImageView_meal_image);
-            recycler_meal_ingrediets.setHasFixedSize(true);
-            recycler_meal_ingrediets.setLayoutManager(new LinearLayoutManager(RecipeDetailsActivity.this, LinearLayoutManager.HORIZONTAL, false));
+            recycler_meal_ingredients.setHasFixedSize(true);
+            recycler_meal_ingredients.setLayoutManager(new LinearLayoutManager(RecipeDetailsActivity.this, LinearLayoutManager.VERTICAL, false));
             ingredientsAdapter = new IngredientsAdapter(RecipeDetailsActivity.this, response.extendedIngredients);
-            recycler_meal_ingrediets.setAdapter(ingredientsAdapter);
+            recycler_meal_ingredients.setAdapter(ingredientsAdapter);
 
             //to hide loading
             recipeLoading.hide();
@@ -182,7 +174,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         TextView_Meal_Name = findViewById(R.id.TextView_Meal_Name);
         textview_meal_Summary = findViewById(R.id.textview_meal_Summary);
         ImageView_meal_image = findViewById(R.id.ImageView_meal_image);
-        recycler_meal_ingrediets = findViewById(R.id.recycler_meal_ingrediets);
+        recycler_meal_ingredients = findViewById(R.id.recycler_meal_ingredients);
         Recycler_meal_similar = findViewById(R.id.Recycler_meal_similar);
         Layout_Expand = findViewById(R.id.Layout_Expand);
         textview_meal_Summary_Expand = findViewById(R.id.textview_meal_Summary_Expand);

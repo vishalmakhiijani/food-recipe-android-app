@@ -46,13 +46,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".UserAccount.Signup_Second"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".UserAccount.Signup"
             android:exported="false">
             <meta-data

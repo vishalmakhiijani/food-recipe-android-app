@@ -21,13 +21,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:src="@drawable/back_30"
-            android:transitionName="transition_back_arrow_btn" />
+            android:src="@drawable/baseline_arrow_back_24"
+            android:transitionName="transition_back_arrow_btn"
+            app:tint="@color/white" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_marginTop="50dp">
 
             <TextView
@@ -41,8 +41,6 @@
                 android:textColor="@color/white"
                 android:textSize="40sp"
                 android:transitionName="transition_title_text" />
-
-
 
         </RelativeLayout>
 
@@ -73,14 +71,13 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Full Name"
+                android:hint="@string/enter_full_name"
                 android:textColorHint="@color/white"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/white"
                 app:hintTextColor="@color/white"
-                app:startIconDrawable="@drawable/full_name_20"
                 app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -107,8 +104,7 @@
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/white"
                 app:hintTextColor="@color/white"
-                app:startIconDrawable="@drawable/email_20"
-                app:startIconTint="@color/white"        >
+                app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -125,7 +121,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:textColorHint="@color/white"
                 app:boxStrokeColor="@color/white"
                 app:boxStrokeWidthFocused="2dp"
@@ -133,7 +129,6 @@
                 app:hintTextColor="@color/white"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/white"
-                app:startIconDrawable="@drawable/password_20"
                 app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -145,6 +140,7 @@
                     android:textCursorDrawable="@null" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/c_signup_password"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -158,7 +154,6 @@
                 app:hintTextColor="@color/white"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/white"
-                app:startIconDrawable="@drawable/password_20"
                 app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -179,7 +174,7 @@
             android:layout_marginTop="20dp"
             android:background="@color/black"
             android:elevation="5dp"
-            android:text="Create Account"
+            android:text="@string/create_account"
             android:textColor="@color/white"
             android:transitionName="transition_next_btn" />
 
@@ -192,7 +187,7 @@
             android:elevation="5dp"
             android:fontFamily="@font/muli"
             android:onClick="callLoginFromSignUp"
-            android:text="Already Have Account!"
+            android:text="@string/already_have_account"
             android:textColor="@color/white"
             android:transitionName="transition_login_btn" />
 

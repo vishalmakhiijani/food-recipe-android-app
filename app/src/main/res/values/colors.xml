@@ -19,4 +19,5 @@
     <color name="navy">#265073</color>
     <color name="off_white">#FAF9F6</color>
     <color name="light_gray">#edede9</color>
+    <color name="main_background">#F2F2F2</color>
 </resources>

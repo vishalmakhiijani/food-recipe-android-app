@@ -73,5 +73,10 @@
     <string name="rate_our_application">Rate Our Application</string>
     <string name="hello">Hello</string>
     <string name="foodie">Foodie!</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="recipe_summary">Recipe Summary</string>
+    <string name="enter_full_name">Enter Full Name</string>
+    <string name="already_have_account">Already Have Account!</string>
+    <string name="create_account">Create Account</string>
     <!-- Strings used for fragments for navigation -->
 </resources>
