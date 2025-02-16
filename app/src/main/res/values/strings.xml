@@ -78,5 +78,6 @@
     <string name="enter_full_name">Enter Full Name</string>
     <string name="already_have_account">Already Have Account!</string>
     <string name="create_account">Create Account</string>
+    <string name="popular_recipes">Popular Recipes</string>
     <!-- Strings used for fragments for navigation -->
 </resources>
