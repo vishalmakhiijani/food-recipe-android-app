@@ -42,13 +42,13 @@ public class RandomRecipeAdapter extends RecyclerView.Adapter<RandomRecpieViewHo
     public void onBindViewHolder(@NonNull RandomRecpieViewHolder holder, int position) {
         holder.TextView_Title.setText(list.get(position).title);
         holder.TextView_Title.setSelected(true);
-//        holder.textView_Likes.setText(list.get(position).aggregateLikes + " Likes");
+        holder.textView_Likes.setText(list.get(position).aggregateLikes + " Likes");
         holder.textView_Servings.setText(list.get(position).servings + " Servings");
         holder.textView_Time.setText(list.get(position).readyInMinutes + " Minutes");
         if (!list.get(position).diets.isEmpty()) {
             holder.textView_tags_frees.setText(list.get(position).diets + "");
         } else {
-//            holder.textView_tags_frees.setText("");
+            holder.textView_tags_frees.setText("");
         }
         holder.textView_tags_frees.setSelected(true);
 

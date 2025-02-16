@@ -23,16 +23,19 @@ import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.meetvishalkumar.myapplication.Adapters.RandomRecipeAdapter;
+import com.meetvishalkumar.myapplication.Adapters.TagsAdapter;
 import com.meetvishalkumar.myapplication.Listeners.RandomRecipesResponseListener;
 import com.meetvishalkumar.myapplication.Listeners.RecipeClickListener;
 import com.meetvishalkumar.myapplication.Loading_Animation.NoInternetDiaload;
 import com.meetvishalkumar.myapplication.Loading_Animation.RecipeLoading;
+import com.meetvishalkumar.myapplication.Models.Tag;
 import com.meetvishalkumar.myapplication.UserAccount.Profile;
 import com.meetvishalkumar.myapplication.UserAccount.Splash_Login;
 import com.meetvishalkumar.myapplication.Models.RandomRecipeApiResponse;
@@ -65,6 +68,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     Spinner spinner;
     List<String> tags = new ArrayList<>();
+
+    RecyclerView recyclerView;
+    TagsAdapter adapter;
+    List<Tag> tagList = new ArrayList<>();
 
 
     private final RandomRecipesResponseListener RandomRecipesResponseListener = new RandomRecipesResponseListener() {
@@ -164,8 +171,46 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         manager = new RequestManager(this);
 
+
+
+
+
+
+        recyclerView = findViewById(R.id.recycler_tags);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        loadTags();
+
+        adapter = new TagsAdapter(tagList, this, tagName -> {
+            tags.clear();
+            tags.add(tagName);
+            manager.getRandomRecipes(RandomRecipesResponseListener, tags);
+
+            if (checkInternet()) {
+                recipeLoading.show();
+            }
+        });
+
+        recyclerView.setAdapter(adapter);
+
     }
 
+    private void loadTags() {
+        tagList.add(new Tag("main course", R.drawable.app_logo_black));
+        tagList.add(new Tag("side dish", R.drawable.app_logo_black));
+        tagList.add(new Tag("dessert", R.drawable.app_logo_black));
+        tagList.add(new Tag("appetizer", R.drawable.app_logo_black));
+        tagList.add(new Tag("salad", R.drawable.app_logo_black));
+        tagList.add(new Tag("bread", R.drawable.app_logo_black));
+        tagList.add(new Tag("breakfast", R.drawable.app_logo_black));
+        tagList.add(new Tag("soup", R.drawable.app_logo_black));
+        tagList.add(new Tag("beverage", R.drawable.app_logo_black));
+        tagList.add(new Tag("sauce", R.drawable.app_logo_black));
+        tagList.add(new Tag("marinade", R.drawable.app_logo_black));
+        tagList.add(new Tag("fingerfood", R.drawable.app_logo_black));
+        tagList.add(new Tag("snack", R.drawable.app_logo_black));
+        tagList.add(new Tag("drink", R.drawable.app_logo_black));
+
+    }
 
 
     //        Navigation Drawer Setting Start

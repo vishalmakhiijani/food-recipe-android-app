@@ -52,15 +52,15 @@
                             android:id="@+id/menu_opener_image"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/menu_50" />
+                            android:src="@drawable/menu_30" />
 
-                        <Spinner
-                            android:id="@+id/spinner_tags"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentEnd="true"
-                            android:entries="@array/tags"
-                            android:gravity="center" />
+<!--                        <Spinner-->
+<!--                            android:id="@+id/spinner_tags"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_alignParentEnd="true"-->
+<!--                            android:entries="@array/tags"-->
+<!--                            android:gravity="center" />-->
                     </RelativeLayout>
 
                 </androidx.appcompat.widget.Toolbar>
@@ -128,8 +128,26 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Categories"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:paddingTop="20sp"
+                    android:paddingBottom="20sp"
+                    android:layout_marginStart="20dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_tags"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/popular_recipes"
-                    android:textSize="25sp"
+                    android:textSize="17sp"
                     android:textColor="@color/black"
                     android:paddingTop="20sp"
                     android:paddingBottom="20sp"
