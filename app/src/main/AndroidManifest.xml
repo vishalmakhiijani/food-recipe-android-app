@@ -19,7 +19,7 @@
             android:name=".Loading_Animation.RecipeLoading"
             android:exported="false"
             android:label="@string/title_activity_recipe_loading"
-            android:theme="@style/Theme.MyApplication.NoActionBar">
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
