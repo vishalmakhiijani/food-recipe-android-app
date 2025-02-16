@@ -88,6 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="?attr/actionBarSize"
                         android:text="@string/foodie"
+                        android:layout_marginStart="10sp"
                         android:textSize="25sp"
                         android:textColor="#2D9596"
                         android:textStyle="bold" />
