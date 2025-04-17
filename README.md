@@ -36,13 +36,13 @@ The spectacular API allows Tasty Tips Android app users to access recipes based 
 ## Features
 
 - At least 50 Recipes on the Homepage
-- Users can create, edit update their accounts
+- Users can create, edit, and update their accounts
 - Similar suggested recipes when opening a recipe
 - Email verification
 - Easy to Use
 - Search recipes by ingredients or title
 - Filter recipes by type of meal
-- Login to your account from any device
+- Log in to your account from any device
 - Completely free and ad-free
 
 
@@ -59,7 +59,7 @@ https://github.com/vishalmakhiijani/food-recipe-android-app.git
 
     
 ### Built With
-* [Android Studio](https://developer.android.com/studio/index.html) - The IDE used for development on Android Environment
+* [Android Studio](https://developer.android.com/studio/index.html) - The IDE used for development on the Android Environment
 * [Gradle](https://gradle.org/) - Built Automation System and Dependency Management
 * [Spoonacular Api](https://spoonacular.com/) - Used to Get Food Recipies 
 ## Feedback
@@ -72,4 +72,4 @@ If you have any feedback, please reach out to me at <p align="left"> <a href="ma
 
 </br></br>
 
-### Built With ♥ And :coffee: By [`Vishal`](https://github.com/vishalmakhiijani/vishalmakhiijani/blob/main/README.md) In  [![](https://wakatime.com/badge/user/3ca47b62-657a-46e7-942b-50ea09e46467/project/2c57e499-909d-4a96-a76d-b5aa68a900e7.svg)](https://wakatime.com/badge/user/3ca47b62-657a-46e7-942b-50ea09e46467/project/2c57e499-909d-4a96-a76d-b5aa68a900e7)
+### Built With ❤️ And :coffee: By [`Vishal`](https://github.com/vishalmakhiijani/vishalmakhiijani/blob/main/README.md) In  [![](https://wakatime.com/badge/user/3ca47b62-657a-46e7-942b-50ea09e46467/project/2c57e499-909d-4a96-a76d-b5aa68a900e7.svg)](https://wakatime.com/badge/user/3ca47b62-657a-46e7-942b-50ea09e46467/project/2c57e499-909d-4a96-a76d-b5aa68a900e7)
